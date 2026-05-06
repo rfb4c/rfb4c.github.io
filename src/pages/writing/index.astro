@@ -2,79 +2,64 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { featuredWorks, writingSeries } from '../../data/writing';
 
+const typeLabel: Record<string, string> = {
+  Documentary: 'Documentary',
+  Investigation: 'Investigation',
+  Photography: 'Photography',
+};
 ---
 
-<BaseLayout title="Journalism — Rui Feng" description="Journalism from 2021–2022 spanning photography, documentary, and investigative reporting.">
+<BaseLayout title="Writing — Rui Feng" description="Journalism from 2021–2022 spanning photography, documentary, and investigative reporting.">
   <section class="px-6 py-16">
     <div class="max-w-2xl mx-auto">
 
-      <h1 class="text-2xl font-semibold tracking-tight mb-1">Journalism</h1>
+      <h1 class="text-2xl font-semibold tracking-tight mb-1">Writing</h1>
       <p class="text-sm text-gray-500 dark:text-zinc-400 mb-14">
         Journalism from 2021–2022 across photography, documentary, and investigative reporting.
       </p>
 
       <!-- Featured -->
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">Featured</h2>
-
-      {(() => {
-        const documentary = featuredWorks.find(w => w.type === 'Documentary')!;
-        const investigation = featuredWorks.find(w => w.type === 'Investigation')!;
-        const photography = featuredWorks.find(w => w.type === 'Photography')!;
-        return (
-          <div class="mb-16 space-y-3">
-
-            <!-- Investigation — top, most prominent -->
-            <a href={investigation.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden aspect-[2/1]">
-              <img src={investigation.image} alt={investigation.title}
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-              <div class="absolute inset-0 p-5 flex flex-col justify-between">
-                <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{investigation.type} · {investigation.publication} · {investigation.year}</span>
-                <div>
-                  <h3 class="text-lg font-semibold text-white leading-snug mb-2">{investigation.title}</h3>
-                  <p class="text-xs text-white/60 leading-relaxed line-clamp-2 max-w-[60%]">{investigation.description}</p>
-                  {investigation.note && <p class="mt-2 text-[10px] text-[#FB923C]">{investigation.note}</p>}
-                </div>
+      <div class="grid sm:grid-cols-3 gap-4 mb-16">
+        {featuredWorks.map(work => (
+          <a
+            href={work.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl overflow-hidden border border-gray-100 dark:border-white/10 hover:border-gray-200 dark:hover:border-white/20 transition-all duration-200"
+          >
+            <!-- Cover image -->
+            <div class="aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-white/5">
+              <img
+                src={work.image}
+                alt={work.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <!-- Card body -->
+            <div class="p-4">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#7C3AED] dark:text-[#A78BFA]">
+                {typeLabel[work.type]}
+              </span>
+              <h3 class="mt-1 text-sm font-medium text-[#111111] dark:text-[#FAFAFA] leading-snug line-clamp-2">
+                {work.title}
+              </h3>
+              <p class="mt-2 text-xs text-gray-500 dark:text-zinc-400 leading-relaxed line-clamp-3">
+                {work.description}
+              </p>
+              {work.note && (
+                <p class="mt-2 text-[10px] text-[#F97316] dark:text-[#FB923C]">{work.note}</p>
+              )}
+              <div class="mt-3 flex items-center justify-between">
+                <span class="text-xs text-gray-400 dark:text-zinc-500">{work.publication} · {work.year}</span>
+                <svg class="w-3.5 h-3.5 text-gray-300 dark:text-zinc-600 group-hover:text-[#7C3AED] dark:group-hover:text-[#A78BFA] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </div>
-            </a>
-
-            <!-- Photography — middle, wide landscape -->
-            <a href={photography.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden aspect-[16/9]">
-              <img src={photography.image} alt={photography.title}
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-5">
-                <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{photography.type} · {photography.publication} · {photography.year}</p>
-                <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{photography.title}</h3>
-              </div>
-            </a>
-
-            <!-- Documentary — bottom, cinematic letterbox -->
-            <a href={documentary.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden bg-black aspect-[2/1]">
-              <div class="absolute inset-x-0 top-[11%] bottom-[11%]">
-                <img src={documentary.image} alt={documentary.title}
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:scale-105 transition-all duration-200">
-                  <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 p-5">
-                <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">{documentary.type} · {documentary.publication} · {documentary.year}</p>
-                <h3 class="mt-1 text-base font-semibold text-white leading-snug">{documentary.title}</h3>
-              </div>
-            </a>
-
-          </div>
-        );
-      })()}
+            </div>
+          </a>
+        ))}
+      </div>
 
       <!-- Series -->
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">Series</h2>
