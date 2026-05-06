@@ -1,14 +1,15 @@
-# Personal Website — Rui Feng
+# Personal Website — Ash Feng
 
 ## What this is
 
-A personal academic website for Rui Feng, built with Astro + Tailwind CSS. Primary purpose: PhD applications (套磁), presenting research background to potential supervisors. Secondary: a blog for personal writing.
+A personal academic website for Ash Feng, built with Astro + Tailwind CSS. Primary purpose: PhD applications (套磁), presenting research background to potential supervisors. Secondary: a blog for personal writing.
 
 ## Owner profile
 
-- Name: Rui Feng (冯睿)
+- Name: Rui Feng (冯睿), English name: **Ash Feng** (display name used throughout the site)
 - Current location: Nagoya, Japan
 - Background: Communication researcher → Journalist → Full-stack engineer
+- Current role: IT Consultant & AI Solutions Engineer at Accenture Japan
 - Research direction: Perceptual polarization, media design, HCI, computational communication
 - Applying to: CSS/HCI PhD programs (likely US/Europe)
 - Email: hyoueicn@gmail.com
@@ -31,16 +32,17 @@ Note: `C:\docs\personal-site\` also exists but is a leftover partial copy — ig
 ## Design decisions
 
 - **Aesthetic**: Diffuse light (弥散光) blobs as decorative elements, heavy whitespace, Inter font
+- **Hero blobs**: Two blobs, right side only, diagonal (rose-pink `#D94070` upper-right + jade green `#2EA875` lower, overlapping). Anchored in Hero section, overflow into About section below.
 - **Colors**: Violet `#7C3AED` (accent), Orange `#F97316`, Cyan `#06B6D4`; dark mode bg `#0A0A0A`
 - **Dark mode**: Toggled via `dark` class on `<html>`, stored in localStorage, anti-FOUC inline script
 - **No headshot photo**: Deliberate choice to avoid implicit bias in Western PhD applications. The gradient circle avatar is intentional design, not a placeholder.
-- **Nav links**: Writing → `/writing`, Blog → `/blog`, CV → `#` (placeholder)
+- **Nav links**: Journalism → `/writing`, Blog → `/blog`, CV → `#` (placeholder)
 
 ## Page structure
 
 ```
-/                   Homepage: bio, education, experience, projects, blog preview, writing preview
-/writing            Journalism page: 3 Featured cards (with images) + 4 collapsible series
+/                   Homepage: bio, education, experience, projects, blog preview, journalism preview
+/writing            Journalism page: 3 Featured (editorial layout) + 4 collapsible series
 /blog               Blog post list
 /blog/[slug]        Individual blog post (Markdown via content collections)
 ```
@@ -58,7 +60,7 @@ Note: `C:\docs\personal-site\` also exists but is a leftover partial copy — ig
 
 ## Homepage sections (in order)
 
-1. **Hero**: gradient avatar, name, tagline, location, research interest tags
+1. **Hero**: gradient avatar, name (`Ash Feng`), tagline (`IT Consultant · AI Engineer · Former Journalist`), location, research interest tags
 2. **About**: 2-paragraph bio + education (M.A. Kansai Univ. Japan / B.A. Shanghai Polytechnic)
 3. **Experience** (timeline):
    - Accenture Japan — Consultant & AI Solutions Engineer, Nagoya, Aug 2025–Present
@@ -69,16 +71,16 @@ Note: `C:\docs\personal-site\` also exists but is a leftover partial copy — ig
    - The Paper (澎湃新闻) — Intern Journalist, Shanghai, 2021–2022
 4. **Projects**: Lichtung 林地空间 (feed simulator, lichtung-three.vercel.app) + r-selected (not deployed)
 5. **Blog preview**: latest 2 posts, link to /blog
-6. **Writing preview**: 3 Featured journalism cards with images, link to /writing
+6. **Journalism preview**: 3 Featured works in editorial layout, link to /writing
 
 ## Journalism page (`/writing`)
 
-**Section name**: "Journalism" (not "Writing" — pending update, or "Publications" — avoid, implies academic)
+**Section name**: "Journalism" (nav label, page h1, homepage section heading — all updated)
 
-**Featured (3 cards with images)**:
-1. 《疫情下的在日留学日记》— Documentary, Phoenix TV, 2021 — `/images/cover-documentary.png`
-2. 《新冠康复者遭职场歧视》— Investigation, The Cover, 2022 — `/images/cover-covid-discrimination.jpg` (prompted State Council policy response)
-3. 《浦东上南九村雨夜中的核酸检测一瞥》— Photography, The Paper, 2022 — `/images/cover-nucleic-acid.jpg` (original deleted, readable via Sina repost)
+**Featured (editorial 3-row stacked layout)**:
+1. **Top** — 《新冠康复者遭职场歧视》— Investigation, `aspect-[2/1]`, left-gradient overlay, text left-anchored. The Cover, 2022. Prompted State Council policy response.
+2. **Middle** — 《浦东上南九村雨夜中的核酸检测一瞥》— Photography, `aspect-[16/9]`, wide landscape, bottom gradient. The Paper, 2022.
+3. **Bottom** — 《疫情下的在日留学日记》— Documentary, `aspect-[2/1]`, black background with cinematic letterbox bars (image inset 11% top/bottom), centered play button. The Paper (澎湃新闻), 2021. Note: original on The Paper (deleted); currently linked via Phoenix TV/ifeng repost. `isVideo: true`.
 
 **Series (collapsible, `<details>` element)**:
 1. Photography — The Paper, 2021–2023, 10 pieces
@@ -88,14 +90,12 @@ Note: `C:\docs\personal-site\` also exists but is a leftover partial copy — ig
 
 ## Pending items
 
-- [ ] Change "Writing" label to "Journalism" across nav, pages, and data
-- [ ] Video cards: discuss embedding vs thumbnail+link (Chinese platforms block iframe; Bilibili embed possible if documentary is uploaded there)
 - [ ] Replace gradient avatar with real photo (when ready — currently intentionally omitted)
 - [ ] Fill in CV link in nav
-- [ ] Update `site` in `astro.config.mjs` with real GitHub Pages URL once repo is created
-- [ ] Set up GitHub repo and push (repo not yet created)
+- [ ] Update `site` in `astro.config.mjs` with real GitHub Pages URL
 - [ ] Add GitHub repo links to r-selected project card
 - [ ] 乍浦路桥 article (www.thepaper.cn/newsDetail_forward_18440310) is noted as personally important — currently in Photography series
+- [ ] Documentary video: no Bilibili version; currently links to ifeng repost. Consider self-hosting if video file is available (yt-dlp + GitHub Releases + `<video>` tag).
 
 ## Commands
 
