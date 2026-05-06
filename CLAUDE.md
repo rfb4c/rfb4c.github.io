@@ -6,7 +6,7 @@ A personal academic website for Ash Feng, built with Astro + Tailwind CSS. Prima
 
 ## Owner profile
 
-- Name: Rui Feng (冯睿), English name: **Ash Feng** (display name used throughout the site)
+- Name: Rui Feng (冯锐), English name: **Ash Feng** (display name used throughout the site)
 - Current location: Nagoya, Japan
 - Background: Communication researcher → Journalist → Full-stack engineer
 - Current role: IT Consultant & AI Solutions Engineer at Accenture Japan

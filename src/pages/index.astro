@@ -10,28 +10,23 @@ const latestPosts = posts
   .slice(0, 2);
 ---
 
-<BaseLayout title="Rui Feng">
+<BaseLayout title="Ash Feng">
 
   <!-- Hero -->
-  <section class="relative pt-16 pb-12">
-    <!-- Diffuse light blobs — intentionally overflow into sections below -->
-    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
-      <!-- Jade green — lower, anchors right side, large + diffuse -->
-      <div class="absolute top-[180px] right-[40px] w-[420px] h-[420px] rounded-full blur-[140px] bg-[#2EA875] opacity-[0.18] dark:opacity-[0.30]"></div>
-      <!-- Terracotta red — upper right, smaller + sharper -->
-      <div class="absolute -top-8 -right-8 w-[260px] h-[260px] rounded-full blur-[70px] bg-[#D94070] opacity-[0.18] dark:opacity-[0.28]"></div>
+  <section class="relative overflow-hidden pt-16 pb-12">
+    <!-- Diffuse light blobs -->
+    <div class="absolute top-0 right-0 w-[480px] h-[480px] pointer-events-none select-none" aria-hidden="true">
+      <div class="absolute top-4 right-4 w-80 h-80 rounded-full blur-3xl bg-[#7C3AED] opacity-20 dark:opacity-30"></div>
+      <div class="absolute top-24 right-16 w-64 h-64 rounded-full blur-3xl bg-[#F97316] opacity-20 dark:opacity-30"></div>
+      <div class="absolute top-8 right-52 w-48 h-48 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
     </div>
 
     <div class="max-w-2xl mx-auto px-6 relative">
       <!-- Profile row -->
-      <div class="flex items-center gap-5 mb-8">
-        <!-- Avatar placeholder: replace with <img> when photo is ready -->
-        <div class="shrink-0 w-[72px] h-[72px] rounded-full bg-gradient-to-br from-[#7C3AED] via-[#F97316] to-[#06B6D4] ring-2 ring-white/20 dark:ring-white/10"></div>
-        <div>
-          <h1 class="text-xl font-semibold tracking-tight">Ash Feng</h1>
-          <p class="mt-0.5 text-sm text-gray-500 dark:text-zinc-400">IT Consultant · AI Engineer · Former Journalist</p>
-          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Nagoya, Japan</p>
-        </div>
+      <div class="mb-8">
+        <h1 class="text-xl font-semibold tracking-tight">Ash Feng</h1>
+        <p class="mt-0.5 text-sm text-gray-500 dark:text-zinc-400">Consultant & AI Engineer · Former Journalist in China</p>
+        <p class="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Nagoya, Japan</p>
       </div>
 
       <!-- Research interest tags -->
@@ -64,23 +59,6 @@ const latestPosts = posts
         </p>
       </div>
 
-      <!-- Education -->
-      <div class="mt-8 space-y-3 border-t border-gray-100 dark:border-white/10 pt-6">
-        <div class="flex items-baseline justify-between gap-4 flex-wrap">
-          <p class="text-sm">
-            <span class="text-[#111111] dark:text-[#FAFAFA]">M.A. Sociology (Mass Communication)</span>
-            <span class="text-gray-400 dark:text-zinc-500"> · Kansai University, Japan</span>
-          </p>
-          <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">2020–2022</span>
-        </div>
-        <div class="flex items-baseline justify-between gap-4 flex-wrap">
-          <p class="text-sm">
-            <span class="text-[#111111] dark:text-[#FAFAFA]">B.A. Japanese & English</span>
-            <span class="text-gray-400 dark:text-zinc-500"> · Shanghai Polytechnic University, Shanghai</span>
-          </p>
-          <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">2014–2018</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -161,8 +139,9 @@ const latestPosts = posts
         <div class="flex gap-4">
           <div class="flex flex-col items-center pt-1">
             <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
           </div>
-          <div>
+          <div class="pb-2">
             <div class="flex items-baseline gap-2 flex-wrap">
               <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻)</span>
               <span class="text-xs text-gray-400 dark:text-zinc-500">Shanghai · 2021–2022</span>
@@ -174,6 +153,33 @@ const latestPosts = posts
           </div>
         </div>
 
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
+          </div>
+          <div class="pb-2">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Kansai University</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Japan · 2020–2022</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">M.A. Sociology (Mass Communication)</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Shanghai Polytechnic University</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Shanghai · 2014–2018</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">B.A. Japanese & English</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -182,11 +188,22 @@ const latestPosts = posts
     <hr class="border-gray-100 dark:border-white/10" />
   </div>
 
-  <!-- Projects -->
+  <!-- Research -->
   <section class="py-14">
     <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Projects</h2>
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Research</h2>
       <div class="space-y-6">
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Patriotic Propaganda in Crisis</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">M.A. Thesis · 2022</span>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
+            A content analysis of People's Daily's WeChat account (n = 2,318 posts, January–April 2020), examining how Chinese state media deploys patriotic propaganda during a public health crisis. Identified four structural mechanisms: layered deployment of narrative categories, threshold-triggered responsiveness to political events, resilient adaptation under narrative challenges, and embodied transmission through representative identities.
+          </p>
+          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Content analysis · Chinese media · Political communication · Mass Communication</p>
+        </div>
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
@@ -295,14 +312,11 @@ const latestPosts = posts
             <!-- Documentary — bottom, cinematic letterbox -->
             <a href={documentary.url} target="_blank" rel="noopener noreferrer"
                class="group relative block rounded-xl overflow-hidden bg-black aspect-[2/1]">
-              <!-- Image inset top/bottom to reveal black bars -->
               <div class="absolute inset-x-0 top-[11%] bottom-[11%]">
                 <img src={documentary.image} alt={documentary.title}
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
-              <!-- Gradient fading into black bar at bottom -->
               <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
-              <!-- Play button -->
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:scale-105 transition-all duration-200">
                   <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
@@ -310,7 +324,6 @@ const latestPosts = posts
                   </svg>
                 </div>
               </div>
-              <!-- Title in bottom black bar -->
               <div class="absolute bottom-0 left-0 right-0 p-4">
                 <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">{documentary.type} · {documentary.publication} · {documentary.year}</p>
                 <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{documentary.title}</h3>
