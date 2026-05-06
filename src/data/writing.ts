@@ -7,6 +7,7 @@ export interface FeaturedWork {
   description: string;
   type: 'Documentary' | 'Investigation' | 'Photography';
   note?: string;
+  isVideo?: boolean;
 }
 
 export interface SeriesItem {
@@ -27,12 +28,13 @@ export interface WritingSeries {
 export const featuredWorks: FeaturedWork[] = [
   {
     title: '疫情下的在日留学日记',
-    publication: 'Phoenix TV',
+    publication: 'The Paper (澎湃新闻)',
     year: '2021',
     url: 'https://ent.ifeng.com/c/89AtBYbXVBS',
     image: '/images/cover-documentary.png',
     description: 'An independent documentary I produced during the early COVID pandemic, following the daily life of Chinese students stranded in Japan.',
     type: 'Documentary',
+    isVideo: true,
   },
   {
     title: '新冠康复者遭职场歧视',
