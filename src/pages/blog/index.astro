@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sorted = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog — Rui Feng" description="Thoughts on media, design, research, and life.">
+  <section class="px-6 py-16">
+    <div class="max-w-2xl mx-auto">
+      <h1 class="text-2xl font-semibold tracking-tight mb-1">Blog</h1>
+      <p class="text-sm text-gray-500 dark:text-zinc-400 mb-12">Thoughts on media, design, research, and life.</p>
+
+      <div>
+        {sorted.map((post, i) => (
+          <article class={`py-5 ${i !== 0 ? 'border-t border-gray-100 dark:border-white/10' : ''}`}>
+            <div class="flex items-baseline justify-between gap-4 flex-wrap">
+              <a
+                href={`/blog/${post.slug}`}
+                class="font-medium text-sm text-[#111111] dark:text-[#FAFAFA] hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors"
+              >
+                {post.data.title}
+              </a>
+              <time class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">
+                {post.data.date.toISOString().split('T')[0]}
+              </time>
+            </div>
+            <p class="mt-1 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

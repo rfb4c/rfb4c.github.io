@@ -1,0 +1,32 @@
+---
+interface Props {
+  title: string;
+  publication: string;
+  year: string;
+  url: string;
+  award?: string;
+}
+
+const { title, publication, year, url, award } = Astro.props;
+const isPlaceholder = url === '#';
+---
+<a
+  href={url}
+  target={isPlaceholder ? undefined : '_blank'}
+  rel={isPlaceholder ? undefined : 'noopener noreferrer'}
+  class="group block border border-gray-100 dark:border-white/10 rounded-xl p-5 hover:border-gray-200 dark:hover:border-white/20 transition-all duration-200"
+>
+  <span class="text-xs font-medium text-gray-400 dark:text-zinc-500">{publication}</span>
+  <h3 class="mt-2 text-sm font-medium text-[#111111] dark:text-[#FAFAFA] group-hover:text-[#7C3AED] dark:group-hover:text-[#A78BFA] transition-colors line-clamp-3 leading-relaxed">
+    {title}
+  </h3>
+  {award && (
+    <span class="mt-2 inline-block text-xs text-[#F97316] dark:text-[#FB923C]">↑ {award}</span>
+  )}
+  <div class="mt-3 flex items-center justify-between">
+    <span class="text-xs text-gray-400 dark:text-zinc-500">{year}</span>
+    <svg class="w-3.5 h-3.5 text-gray-300 dark:text-zinc-600 group-hover:text-[#7C3AED] dark:group-hover:text-[#A78BFA] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+    </svg>
+  </div>
+</a>

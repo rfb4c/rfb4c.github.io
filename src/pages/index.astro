@@ -1,0 +1,285 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+import { featuredWorks } from '../data/writing';
+
+const posts = await getCollection('blog');
+const latestPosts = posts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
+---
+
+<BaseLayout title="Rui Feng">
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-16 pb-12">
+    <!-- Diffuse light blobs -->
+    <div class="absolute top-0 right-0 w-[480px] h-[480px] pointer-events-none select-none" aria-hidden="true">
+      <div class="absolute top-4 right-4 w-80 h-80 rounded-full blur-3xl bg-[#7C3AED] opacity-20 dark:opacity-30"></div>
+      <div class="absolute top-24 right-16 w-64 h-64 rounded-full blur-3xl bg-[#F97316] opacity-20 dark:opacity-30"></div>
+      <div class="absolute top-8 right-52 w-48 h-48 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 relative">
+      <!-- Profile row -->
+      <div class="flex items-center gap-5 mb-8">
+        <!-- Avatar placeholder: replace with <img> when photo is ready -->
+        <div class="shrink-0 w-[72px] h-[72px] rounded-full bg-gradient-to-br from-[#7C3AED] via-[#F97316] to-[#06B6D4] ring-2 ring-white/20 dark:ring-white/10"></div>
+        <div>
+          <h1 class="text-xl font-semibold tracking-tight">Rui Feng</h1>
+          <p class="mt-0.5 text-sm text-gray-500 dark:text-zinc-400">Researcher · Engineer · Former Journalist</p>
+          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Nagoya, Japan</p>
+        </div>
+      </div>
+
+      <!-- Research interest tags -->
+      <div class="flex flex-wrap gap-2">
+        {['Perceptual Polarization', 'Media Design', 'HCI', 'Computational Communication'].map(tag => (
+          <span class="text-xs px-3 py-1 rounded-full border border-gray-200 dark:border-white/15 text-gray-500 dark:text-zinc-400">
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="pb-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">About</h2>
+      <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        <p>
+          I study how information environments shape the way we perceive each other. My research focuses on
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> —
+          the systematic exaggeration of how different "the other side" really is — and how digital platforms
+          might be designed to calibrate rather than amplify these distortions.
+        </p>
+        <p>
+          My path here is unconventional: I diagnosed how media frames shape perception as a graduate
+          researcher, experienced the structural limits of individual content production as a journalist,
+          and have spent the last few years acquiring the engineering skills needed to build and test
+          the interventions my research will propose.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="mt-8 space-y-3 border-t border-gray-100 dark:border-white/10 pt-6">
+        <div class="flex items-baseline justify-between gap-4 flex-wrap">
+          <p class="text-sm">
+            <span class="text-[#111111] dark:text-[#FAFAFA]">M.A. Sociology (Mass Communication)</span>
+            <span class="text-gray-400 dark:text-zinc-500"> · Kansai University, Japan</span>
+          </p>
+          <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">2020–2022</span>
+        </div>
+        <div class="flex items-baseline justify-between gap-4 flex-wrap">
+          <p class="text-sm">
+            <span class="text-[#111111] dark:text-[#FAFAFA]">B.A. Japanese & English</span>
+            <span class="text-gray-400 dark:text-zinc-500"> · Shanghai Polytechnic University, Shanghai</span>
+          </p>
+          <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">2014–2018</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Experience -->
+  <section class="py-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Experience</h2>
+      <div class="space-y-8">
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
+          </div>
+          <div class="pb-2">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Accenture Japan</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Nagoya · Aug 2025–Present</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Consultant & AI Solutions Engineer (Forward Deployed Engineer)</p>
+            <div class="mt-2 space-y-3">
+              <div>
+                <p class="text-xs text-gray-400 dark:text-zinc-500 mb-1">Major energy group · Development lead</p>
+                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+                  Designed and built an AI Agent pipeline combining LLM and MCP to automate complex business logic processing via natural-language-to-code generation. Led requirements alignment, system architecture, and client communication across a cross-functional team.
+                </p>
+              </div>
+              <div>
+                <p class="text-xs text-gray-400 dark:text-zinc-500 mb-1">Metropolitan government international PR department · Development member</p>
+                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+                  Building an AI agent pipeline that automates multilingual public communications record generation — directly adjacent to my research on AI-mediated information production.
+                </p>
+              </div>
+            </div>
+            <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3">Java · Python · MCP · LLM · Prompt Engineering · TDD</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
+          </div>
+          <div class="pb-2">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Neutral Co., Ltd.</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Nagoya · Oct 2023–Jul 2025</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">System Engineer</p>
+            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+              Full-stack development for a major automotive manufacturer's vehicle design systems. Designed and implemented features across UI, API, and database layers; participated in full agile lifecycle from requirements to release.
+            </p>
+            <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Java · Spring Boot · Angular.js · Oracle · Jenkins</p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
+          </div>
+          <div class="pb-2">
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻)</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Beijing · Jul–Nov 2022</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Journalist</p>
+            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+              Covered science, technology, and breaking news. Produced a documentary series on national infrastructure projects (Chinese Journalism Award). Conducted an investigation into COVID survivor employment discrimination that prompted a State Council policy response.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-1">
+            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-2 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻)</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Shanghai · 2021–2022</span>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Intern Journalist</p>
+            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+              Photojournalism, exhibition coverage, and multimedia production including VR dispatches. Produced an independent documentary on Chinese students stranded in Japan during the early pandemic.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Projects -->
+  <section class="py-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Projects</h2>
+      <div class="space-y-6">
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung <span class="font-normal text-gray-400 dark:text-zinc-500">(林地空间)</span></span>
+            <a href="https://lichtung-three.vercel.app" target="_blank" rel="noopener noreferrer" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">lichtung-three.vercel.app ↗</a>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
+            A high-fidelity social feed simulator with two depolarization interventions implemented — the experimental platform for my PhD research proposal. Built to test whether algorithmic design can reduce perceptual polarization.
+          </p>
+          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Research prototype · Feed ranking · AI agent · Behavioral telemetry</p>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">r-selected</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">Not currently deployed</span>
+          </div>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
+            A multi-perspective news aggregator enabling side-by-side comparison of coverage across outlets on the same event. The original prototype that led me to question filter bubble theory.
+          </p>
+          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Java · Angular.js · Vue.js · MySQL · AWS EC2 · Docker</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Blog preview -->
+  <section class="py-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">From the Blog</h2>
+        <a href="/blog" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">
+          All posts →
+        </a>
+      </div>
+      {latestPosts.length > 0 ? (
+        <div class="grid sm:grid-cols-2 gap-4">
+          {latestPosts.map(post => (
+            <BlogCard
+              title={post.data.title}
+              date={post.data.date.toISOString().split('T')[0]}
+              description={post.data.description}
+              slug={post.slug}
+            />
+          ))}
+        </div>
+      ) : (
+        <p class="text-sm text-gray-400 dark:text-zinc-500">No posts yet.</p>
+      )}
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Writing preview -->
+  <section class="py-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">Writing</h2>
+        <a href="/writing" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">
+          All work →
+        </a>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {featuredWorks.map(work => (
+          <a
+            href={work.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group block rounded-xl overflow-hidden border border-gray-100 dark:border-white/10 hover:border-gray-200 dark:hover:border-white/20 transition-all duration-200"
+          >
+            <div class="aspect-[4/3] overflow-hidden bg-gray-100 dark:bg-white/5">
+              <img
+                src={work.image}
+                alt={work.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-3">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-[#7C3AED] dark:text-[#A78BFA]">{work.type}</span>
+              <p class="mt-1 text-xs font-medium text-[#111111] dark:text-[#FAFAFA] leading-snug line-clamp-2">{work.title}</p>
+              <p class="mt-1 text-[10px] text-gray-400 dark:text-zinc-500">{work.publication} · {work.year}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
