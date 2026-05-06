@@ -13,12 +13,13 @@ const latestPosts = posts
 <BaseLayout title="Rui Feng">
 
   <!-- Hero -->
-  <section class="relative overflow-hidden pt-16 pb-12">
-    <!-- Diffuse light blobs -->
-    <div class="absolute top-0 right-0 w-[480px] h-[480px] pointer-events-none select-none" aria-hidden="true">
-      <div class="absolute top-4 right-4 w-80 h-80 rounded-full blur-3xl bg-[#7C3AED] opacity-20 dark:opacity-30"></div>
-      <div class="absolute top-24 right-16 w-64 h-64 rounded-full blur-3xl bg-[#F97316] opacity-20 dark:opacity-30"></div>
-      <div class="absolute top-8 right-52 w-48 h-48 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
+  <section class="relative pt-16 pb-12">
+    <!-- Diffuse light blobs — intentionally overflow into sections below -->
+    <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+      <!-- Jade green — lower, anchors right side, large + diffuse -->
+      <div class="absolute top-[180px] right-[40px] w-[420px] h-[420px] rounded-full blur-[140px] bg-[#2EA875] opacity-[0.18] dark:opacity-[0.30]"></div>
+      <!-- Terracotta red — upper right, smaller + sharper -->
+      <div class="absolute -top-8 -right-8 w-[260px] h-[260px] rounded-full blur-[70px] bg-[#D94070] opacity-[0.18] dark:opacity-[0.28]"></div>
     </div>
 
     <div class="max-w-2xl mx-auto px-6 relative">
