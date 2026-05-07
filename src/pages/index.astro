@@ -29,6 +29,8 @@ const latestPosts = posts
         <p class="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Nagoya, Japan</p>
       </div>
 
+      <p class="text-sm text-gray-500 dark:text-zinc-400 mb-5">Designing media environments for mutual understanding.</p>
+
       <!-- Research interest tags -->
       <div class="flex flex-wrap gap-2">
         {['Perceptual Polarization', 'Media Design', 'HCI', 'Computational Communication'].map(tag => (
@@ -46,16 +48,15 @@ const latestPosts = posts
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">About</h2>
       <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
         <p>
-          I study how information environments shape the way we perceive each other. My research focuses on
-          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> —
-          the systematic exaggeration of how different "the other side" really is — and how digital platforms
-          might be designed to calibrate rather than amplify these distortions.
+          I design and study media environments that help people understand each other better across difference.
+          My research focuses on <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> —
+          the systematic exaggeration of how extreme and hostile the other side really is — and how platform
+          architecture can be redesigned to correct rather than amplify these distortions.
         </p>
         <p>
-          My path here is unconventional: I diagnosed how media frames shape perception as a graduate
-          researcher, experienced the structural limits of individual content production as a journalist,
-          and have spent the last few years acquiring the engineering skills needed to build and test
-          the interventions my research will propose.
+          My background spans communication research, journalism, and software engineering — a combination
+          I built to do work that requires both theoretical grounding and the technical capacity to
+          construct the systems it proposes.
         </p>
       </div>
 
@@ -191,7 +192,10 @@ const latestPosts = posts
   <!-- Research -->
   <section class="py-14">
     <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Research</h2>
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">Research</h2>
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed mb-8">
+        I study <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> — the systematic exaggeration of how extreme and hostile the other side really is. Evidence suggests that digital algorithms distort not political attitudes directly, but the informational inputs people use to <em>infer</em> out-group beliefs and in-group norms; this makes the inference layer the more tractable intervention target. My current research develops the <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Perceived Depolarization Design Framework (PDDF)</span>, which translates cognitive causal mechanisms into platform-agnostic intervention functions and tests them via randomized controlled experiments in a custom-built high-fidelity social feed simulator.
+      </p>
       <div class="space-y-6">
 
         <div>
@@ -219,7 +223,7 @@ const latestPosts = posts
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
             <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">r-selected</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">Not currently deployed</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">Retired prototype · preceded Lichtung</span>
           </div>
           <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
             A multi-perspective news aggregator enabling side-by-side comparison of coverage across outlets on the same event. The original prototype that led me to question filter bubble theory.
