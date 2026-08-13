@@ -1,0 +1,282 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const PDF = '/cv/Ash_Feng_CV.pdf';
+
+const education = [
+  { school: 'Kansai University', where: 'Osaka, Japan', when: '2020–2022', detail: 'M.A. in Sociology (Mass Communication), GPA 4.0/4.0' },
+  { school: 'Shanghai Polytechnic University', where: 'Shanghai, China', when: '2014–2018', detail: 'B.A. in English Language and Literature' },
+  { school: 'University of Missouri–Kansas City', where: 'Kansas City, MO', when: '2016', detail: 'Exchange Student' },
+];
+
+const awards = [
+  '2025 · Internal MVP Award, Accenture Japan (generative-AI engagement for a major energy utility)',
+  '2023 · China News Award (中国新闻奖), team award, national infrastructure feature series, The Cover',
+];
+
+const skills = [
+  { label: 'Research', detail: 'Quantitative content analysis and qualitative close reading; coding scheme development and intercoder reliability.' },
+  { label: 'Programming', detail: 'Python, Java, TypeScript; full-stack web development (Spring Boot, Angular, Vue); data analysis in Python (pandas); containerized cloud deployment (Docker, AWS, Azure).' },
+  { label: 'AI Systems', detail: 'LLM agent development (Strands Agents, MCP); RAG with vector and graph databases; prompt and context engineering; production AI workflow design.' },
+];
+
+const certifications = [
+  '2026 · Google Cloud Generative AI Leader',
+  '2025 · AWS Certified Cloud Practitioner',
+  '2019 · Japanese Language Proficiency Test, N1',
+  'Chinese (native); English (fluent); Japanese (fluent)',
+];
+---
+
+<BaseLayout title="CV — Ash Feng" description="Curriculum vitae of Rui (Ash) Feng" noindex={true}>
+
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-16 pb-10">
+    <div class="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none select-none" aria-hidden="true">
+      <div class="absolute top-4 right-4 w-72 h-72 rounded-full blur-3xl bg-[#7C3AED] opacity-15 dark:opacity-25"></div>
+      <div class="absolute top-24 right-16 w-56 h-56 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 relative">
+      <div class="flex items-start justify-between gap-6 flex-wrap">
+        <div>
+          <h1 class="text-xl font-semibold tracking-tight">Rui (Ash) Feng</h1>
+          <p class="mt-1 text-sm text-gray-500 dark:text-zinc-400">
+            <a href="mailto:ash.rui.feng@gmail.com" class="hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors">ash.rui.feng@gmail.com</a>
+            <span class="text-gray-300 dark:text-zinc-600 px-1.5">·</span>ashfeng.com
+            <span class="text-gray-300 dark:text-zinc-600 px-1.5">·</span>Nagoya, Japan
+          </p>
+        </div>
+        <a href={PDF} download
+           class="shrink-0 inline-flex items-center gap-2 text-sm font-medium rounded-lg px-4 py-2 bg-[#111111] text-white dark:bg-[#FAFAFA] dark:text-[#0A0A0A] hover:opacity-85 transition-opacity">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Research interests -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Research Interests</h2>
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        Perceived polarization in digitally mediated environments; translating cognitive mechanisms
+        into system-level intervention designs — implemented first in algorithmic feeds, with
+        conversational AI as a proposed second test arena.
+      </p>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Education</h2>
+      <div class="space-y-4">
+        {education.map(e => (
+          <div>
+            <div class="flex items-baseline justify-between gap-4 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">{e.school}<span class="font-normal text-gray-400 dark:text-zinc-500"> — {e.where}</span></span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">{e.when}</span>
+            </div>
+            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-0.5">{e.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Research experience -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Research Experience</h2>
+      <div class="space-y-8">
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung — Feed-Based Experimental Simulator for Perceived Polarization</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">2026–Present</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">
+            Independent research project, sole designer and developer —
+            <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">lichtung.ashfeng.com</a>
+            <span class="text-gray-300 dark:text-zinc-600"> · </span>
+            <a href="https://github.com/rfb4c/Lichtung" target="_blank" rel="noopener noreferrer" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">github.com/rfb4c/Lichtung</a>
+          </p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Built a platform-independent social feed simulator that turns mechanisms of perceived polarization into manipulable feed- and interface-level experimental conditions, without dependence on commercial-platform APIs.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Redirected the work from <em>what users see</em> to <em>how users interpret what they see</em> after retiring R-selected (2025), an earlier deployed prototype aggregating same-event coverage across outlets of differing stances, once a systematic literature review found the filter-bubble account weakly evidenced (Bruns, 2019; Arguedas et al., 2022) and cross-cutting exposure capable of backfiring (Bail et al., 2018).</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Implemented three intervention modules, each targeting a distinct documented mechanism of out-group misperception: exemplar-diversity reweighting in the ranking layer, a consensus-overlay UI carrying authoritative poll distributions, and an identity layer that lowers party-label salience.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Extending the prototype into an RCT-capable platform: randomized condition assignment, behavioral telemetry (exposure sequence, dwell time, scroll depth, interactions), and pre/post survey linkage.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Master's Thesis Research — Kansai University, Graduate School of Sociology</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">2020–2022</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">How party-press social media organized patriotic propaganda in the early COVID-19 pandemic</p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Hand-coded the complete census of 2,318 posts published by the <em>People's Daily</em> WeChat official account over the first four months of 2020, developing an original five-variable coding scheme to identify and analyze patriotic propaganda.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Found this content assembled from a small set of reusable title formulas and narrative paths rather than composed anew for each event: what shifted across periods was volume and category mix, while hero portrayals converged on healthcare workers — from a third of represented figures to nearly nine in ten — after the first political mobilization point.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Employment -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Employment</h2>
+      <div class="space-y-8">
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Accenture Japan — Nagoya, Japan</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">July 2025–Present</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">AI Engineer / Consultant</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+            Joined through the acquisition of Neutral Inc. Generative AI and AI-agent delivery, from
+            proof of concept to production adoption.
+          </p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">AI-driven development workflow for a major energy utility</span> (August 2025–Present). Development lead, team of 5. Designed the AI workflow architecture and MCP integration for automated generation of Java error-handling code in a large-scale customer information system; cut a requirements-to-unit-test cycle that previously took months to 4–5 days. Received an internal MVP award.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Content-generation AI agent for a municipal government's international public relations division</span> (April–June 2026). Developer, then recovery lead; team of 10. Prompt design and implementation in Python and Strands Agents; as recovery lead on a stalled project, ran architecture review, task prioritization, ownership assignment, and progress management.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Generative-AI incident-response support for a central government ministry</span> (June–August 2025). Developer. Designed and rolled out a generative-AI debugging solution with instructional video, hands-on sessions, and internal enablement.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Neutral Inc. — Nagoya, Japan</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">July 2023–June 2025</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Software Engineer</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+            Full-stack agile development of a vehicle design support system for a major automotive
+            manufacturer: detailed design through implementation, unit test, and system test in Java,
+            TypeScript, and Oracle.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻) — Beijing, China</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">July–November 2022</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Journalist</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+            Reported on government, science and technology, and general news; story planning,
+            interviewing, writing, and video direction. Investigated employment discrimination against
+            people recovering from COVID-19, prompting a policy response from the Ministry of Human
+            Resources and Social Security. Member of the feature team covering a national
+            infrastructure program; the series reached roughly 100 million cumulative views and later
+            received the China News Award.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻) — Shanghai, China</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">January 2021–January 2022</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Intern Journalist</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
+            Covered cultural affairs in writing, photography, and documentary video. Independently
+            reported, shot, and edited a documentary on Chinese students in Japan during the COVID-19
+            pandemic.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Awards and Honors</h2>
+      <div class="space-y-2">
+        {awards.map(a => (
+          <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{a}</p>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Skills</h2>
+      <div class="space-y-3">
+        {skills.map(s => (
+          <div class="sm:flex sm:gap-5">
+            <span class="block text-sm font-medium text-[#111111] dark:text-[#FAFAFA] sm:w-28 sm:shrink-0">{s.label}</span>
+            <span class="block text-sm text-gray-500 dark:text-zinc-400 leading-relaxed mt-0.5 sm:mt-0">{s.detail}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section class="pt-9 pb-14">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Certifications and Languages</h2>
+      <div class="space-y-2">
+        {certifications.map(c => (
+          <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{c}</p>
+        ))}
+      </div>
+
+      <div class="mt-10 flex items-center justify-between gap-4 flex-wrap">
+        <a href="/" class="text-xs text-gray-400 dark:text-zinc-500 hover:text-[#111111] dark:hover:text-[#FAFAFA] transition-colors">← Back to home</a>
+        <a href={PDF} download
+           class="inline-flex items-center gap-2 text-sm font-medium rounded-lg px-4 py-2 bg-[#111111] text-white dark:bg-[#FAFAFA] dark:text-[#0A0A0A] hover:opacity-85 transition-opacity">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,411 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  {
+    n: '1',
+    name: 'Mechanism',
+    q: 'How does the misperception arise?',
+    done: true,
+  },
+  {
+    n: '2',
+    name: 'Intervention function',
+    q: 'What informational condition should change? Defined independently of any platform.',
+    done: true,
+  },
+  {
+    n: '3',
+    name: 'System design',
+    q: 'How is that function instantiated in the affordances of a particular medium?',
+    done: true,
+  },
+  {
+    n: '4',
+    name: 'Experiment',
+    q: 'Does it causally recalibrate perception?',
+    done: false,
+  },
+];
+
+const paths = [
+  {
+    key: 'Path A',
+    mechanism: 'Prototype-based judgment',
+    gloss: 'People substitute a few highly visible extreme members for the out-group’s actual distribution.',
+    intervention: 'Counter-stereotypical exemplar injection',
+    layer: 'algorithmic ranking',
+    mediator: 'Perceived group variability',
+    cite: 'Voelkel et al., 2023',
+  },
+  {
+    key: 'Path B',
+    mechanism: 'The majority illusion',
+    gloss: 'High visibility is misread as high prevalence.',
+    intervention: 'Distribution-first placement',
+    layer: 'information presentation',
+    mediator: 'Accuracy motivation',
+    cite: 'Pennycook & Rand, 2021',
+  },
+  {
+    key: 'Path C',
+    mechanism: 'Social categorization',
+    gloss: 'The interface compresses multidimensional identity into a single political label.',
+    intervention: 'Non-political identity surfacing',
+    layer: 'identity-data surfacing',
+    mediator: 'Common ingroup identity',
+    cite: 'Levendusky, 2018',
+  },
+];
+
+const next = [
+  {
+    n: '01',
+    title: 'Measurement',
+    q: 'How do you measure misperception of opinion distributions in realistic use?',
+    body: 'Behavioral telemetry linked to survey measures, so that evaluating an intervention does not rest on self-report alone.',
+  },
+  {
+    n: '02',
+    title: 'Causal testing',
+    q: 'Do these interventions recalibrate perception?',
+    body: 'Randomized controlled experiments on the simulator: causal effect, mediation path, interaction between pathways, and boundary conditions.',
+  },
+  {
+    n: '03',
+    title: 'Cross-medium translation',
+    q: 'Do the same intervention functions survive a different interaction architecture?',
+    body: 'Not the same interface tested elsewhere — returning to the underlying intervention function and re-instantiating it in the affordances of conversational AI. Which principles hold at the mechanism layer, and which turn out to be artifacts of one implementation?',
+  },
+];
+---
+
+<BaseLayout
+  title="Research — Ash Feng"
+  description="Perceived polarization, and whether design interventions in the media environment can reduce it."
+>
+
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-16 pb-10">
+    <div class="absolute top-0 right-0 w-[460px] h-[460px] pointer-events-none select-none" aria-hidden="true">
+      <div class="absolute top-4 right-4 w-80 h-80 rounded-full blur-3xl bg-[#7C3AED] opacity-15 dark:opacity-25"></div>
+      <div class="absolute top-24 right-16 w-60 h-60 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 relative">
+      <h1 class="text-xl font-semibold tracking-tight">Research</h1>
+      <p class="mt-6 text-[17px] leading-[1.6]">
+        <span class="text-gray-400 dark:text-zinc-500">My research question is:</span>
+        <span class="text-[#111111] dark:text-[#FAFAFA]">can design interventions in the media
+        environment reduce perceived polarization?</span>
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- The mechanism -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">The mechanism</h2>
+      <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        <p>
+          Perceived polarization is the systematic misperception of political opinion
+          distributions: people overestimate how extreme the out-group is — and misread
+          what their own group actually believes.
+        </p>
+        <p>
+          It is not a fixed feature of minds. It is assembled by how systems rank, present,
+          and label information — which is what makes it a design problem rather than only
+          a psychological one.
+        </p>
+      </div>
+
+      <div class="mt-6 rounded-xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/[0.03] px-5 py-4">
+        <p class="text-[15px] text-[#111111] dark:text-[#FAFAFA] leading-relaxed">
+          The target is perception, not the factual accuracy of content.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- The method -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">The method</h2>
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        I follow a mechanism-to-design translation approach: from the literature, I identify
+        the mechanism driving perceived polarization, then derive a system-level intervention
+        targeting that mechanism — whether through algorithmic ranking, information
+        presentation, or the surfacing of identity data.
+      </p>
+
+      <!-- Four-step chain -->
+      <div class="mt-7">
+        {steps.map((s, i) => (
+          <div class="flex gap-4">
+            <div class="flex flex-col items-center pt-[7px]">
+              {s.done ? (
+                <span class="w-1.5 h-1.5 rounded-full bg-[#2EA875] shrink-0"></span>
+              ) : (
+                <span class="w-1.5 h-1.5 rounded-full border border-gray-400 dark:border-zinc-500 shrink-0"></span>
+              )}
+              {i < steps.length - 1 && (
+                <div class={`w-px flex-1 mt-2 ${i === steps.length - 2 ? 'border-l border-dashed border-gray-300 dark:border-zinc-600' : 'bg-gray-200 dark:bg-white/15'}`}></div>
+              )}
+            </div>
+            <div class={i < steps.length - 1 ? 'pb-5' : ''}>
+              <div class="flex items-baseline gap-2.5 flex-wrap">
+                <span class="text-xs tabular-nums text-gray-400 dark:text-zinc-500">{s.n}</span>
+                <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">{s.name}</span>
+                {!s.done && (
+                  <span class="text-[10px] uppercase tracking-[0.12em] text-gray-400 dark:text-zinc-500 border border-gray-200 dark:border-white/15 rounded-full px-2 py-0.5">proposed</span>
+                )}
+              </div>
+              <p class="mt-1 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{s.q}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="mt-6 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+        Separating step 2 from step 3 is what makes it possible to ask whether a principle
+        generalizes across <span class="text-[#111111] dark:text-[#FAFAFA]">interaction forms</span> —
+        not merely across interfaces.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Three pathways -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">Three pathways</h2>
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed mb-6">
+        Three mechanisms, each carried through the same translation and pre-specifying the
+        mediator the intervention is designed to shift.
+      </p>
+
+      <div class="space-y-4">
+        {paths.map(p => (
+          <div class="rounded-xl border border-gray-200 dark:border-white/10 p-5">
+            <div class="flex items-baseline gap-2.5 flex-wrap">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">{p.key}</span>
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">{p.mechanism}</span>
+            </div>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{p.gloss}</p>
+
+            <div class="mt-4 space-y-2.5">
+              <div class="flex gap-3">
+                <span class="text-[10px] uppercase tracking-[0.1em] text-gray-400 dark:text-zinc-500 w-[68px] shrink-0 pt-[3px]">Design</span>
+                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+                  <span class="text-[#111111] dark:text-[#FAFAFA]">{p.intervention}</span>
+                  <span class="text-gray-300 dark:text-zinc-600"> · </span>{p.layer}
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-[10px] uppercase tracking-[0.1em] text-gray-400 dark:text-zinc-500 w-[68px] shrink-0 pt-[3px]">Mediator</span>
+                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+                  <span class="text-[#111111] dark:text-[#FAFAFA]">{p.mediator}</span>
+                  <span class="text-gray-300 dark:text-zinc-600"> · </span><span class="italic">{p.cite}</span>
+                </p>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-[10px] uppercase tracking-[0.1em] text-gray-400 dark:text-zinc-500 w-[68px] shrink-0 pt-[3px]">Status</span>
+                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed flex items-baseline gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#2EA875] shrink-0"></span>
+                  implemented in Lichtung
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-5 flex items-center gap-4 flex-wrap text-sm">
+        <span class="text-gray-400 dark:text-zinc-500">See all three running:</span>
+        <a href="/demo" class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Walkthrough →</a>
+        <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer" class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Live demo ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- What comes next -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="flex items-center justify-between gap-4 mb-5">
+        <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">What comes next</h2>
+        <span class="text-[10px] uppercase tracking-[0.12em] text-gray-400 dark:text-zinc-500 border border-gray-200 dark:border-white/15 rounded-full px-2 py-0.5">proposed</span>
+      </div>
+
+      <div class="space-y-6">
+        {next.map(n => (
+          <div class="flex gap-4">
+            <span class="w-1.5 h-1.5 mt-[7px] rounded-full border border-gray-400 dark:border-zinc-500 shrink-0"></span>
+            <div>
+              <div class="flex items-baseline gap-2.5">
+                <span class="text-xs tabular-nums text-gray-400 dark:text-zinc-500">{n.n}</span>
+                <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">{n.title}</span>
+              </div>
+              <p class="mt-1 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{n.q}</p>
+              <p class="mt-1.5 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">{n.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-7 flex items-center gap-3 text-sm text-gray-500 dark:text-zinc-400">
+        <span class="text-[#111111] dark:text-[#FAFAFA]">Algorithmic feeds</span>
+        <span class="text-gray-300 dark:text-zinc-600">──→</span>
+        <span class="text-[#111111] dark:text-[#FAFAFA]">Conversational AI</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- How I got here -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">How I got here</h2>
+
+      <div class="space-y-0">
+
+        <!-- M.A. -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-[7px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></span>
+            <div class="w-px flex-1 bg-gray-200 dark:bg-white/15 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <div class="flex items-baseline justify-between gap-4 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">M.A. · Understanding media systems</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">Kansai University · 2020–2022</span>
+            </div>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed italic">
+              How does institutional media organize and present collective sentiment?
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              <span class="text-[#111111] dark:text-[#FAFAFA]">How party-press social media
+              organized patriotic propaganda in the early COVID-19 pandemic: a content analysis of
+              2,318 posts from the <em>People's Daily</em> WeChat account.</span>
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              I hand-coded the complete census of posts published between January and April 2020,
+              using a five-variable scheme built from Anderson's account of imagined communities
+              and Etō's decomposition of Chinese official nationalism, and segmented the window
+              into four periods by publicly broadcast signals from the top of the party-state.
+              782 posts were coded as patriotic propaganda.
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              What shifted across periods was volume, timing, and category mix; the form of
+              presentation held stable for four months. Hero figures appeared through a small set
+              of recurring title formulas, and their occupational composition locked onto
+              healthcare workers — from a third of represented figures to nearly nine in ten —
+              after the first political mobilization point. Even the response to a contested death
+              reused a format the account already had, within ten minutes of official confirmation.
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              An information environment shapes what people believe others believe, and it does so
+              through structure and repetition rather than through any single message.
+            </p>
+          </div>
+        </div>
+
+        <!-- R-Selected -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-[7px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></span>
+            <div class="w-px flex-1 bg-gray-200 dark:bg-white/15 mt-2"></div>
+          </div>
+          <div class="pb-8">
+            <div class="flex items-baseline justify-between gap-4 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">R-Selected · Questioning exposure</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">retired · 2025</span>
+            </div>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed italic">
+              Would showing people more diverse political perspectives reduce polarization?
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              A news aggregator that placed coverage of the same event from outlets of differing
+              stances side by side. I retired it after a literature review: the filter-bubble
+              account is weakly evidenced (Bruns, 2019; Arguedas et al., 2022), and cross-cutting
+              exposure can backfire (Bail et al., 2018). The premise was wrong.
+            </p>
+
+            <div class="mt-4 rounded-lg overflow-hidden border border-gray-200 dark:border-white/10 shadow-sm">
+              <img src="/images/rselected-expanded.webp"
+                   alt="R-Selected showing one phase of an event expanded: coverage from domestic state media bracketed above, foreign media bracketed below"
+                   class="w-full" />
+            </div>
+            <p class="mt-2 text-xs text-gray-400 dark:text-zinc-500 leading-relaxed">
+              One phase of one event, expanded: the same story as carried by
+              <span class="text-gray-500 dark:text-zinc-400">境内官方媒体</span> (domestic state
+              media) and by <span class="text-gray-500 dark:text-zinc-400">外媒</span> (foreign
+              media), bracketed side by side. The tagline in the masthead —
+              <span class="text-gray-500 dark:text-zinc-400">Break the Bubble</span> — is the
+              premise the literature made me abandon. The service is retired; this is its original
+              build and database, run locally.
+              <a href="https://web.archive.org/web/20241218161433/https://r-selected.com/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Archived copy ↗</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Lichtung -->
+        <div class="flex gap-4">
+          <div class="flex flex-col items-center pt-[7px]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2EA875] shrink-0"></span>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between gap-4 flex-wrap">
+              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung · Targeting inference</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">2026–</span>
+            </div>
+            <p class="mt-1.5 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed italic">
+              What if the problem is not what people see, but how they infer what others believe
+              from what they see?
+            </p>
+            <p class="mt-2 text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+              The target moved from exposure to inference — and with it, the intervention moved
+              from the supply of content to the cues people read it through.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Footer -->
+  <section class="py-9 pb-16">
+    <div class="max-w-2xl mx-auto px-6">
+      <p class="text-sm text-gray-400 dark:text-zinc-500">M.A. thesis available on request.</p>
+      <div class="mt-6 flex items-center justify-between gap-4 flex-wrap">
+        <a href="/demo" class="text-sm text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Demo →</a>
+        <a href="/cv" class="text-sm text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">CV →</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

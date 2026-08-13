@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const VIDEO_ID = 'ZouY4PWux3g';
+const WATCH_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+
+const chapters = [
+  { t: 0,   label: 'Introduction — what perceived polarization is, and the method' },
+  { t: 55,  label: 'Path A · Mechanism: prototype-based judgment' },
+  { t: 90,  label: 'Path A · Demo: the default algorithmic feed' },
+  { t: 142, label: 'Path A · Demo: switching to the calibrated feed' },
+  { t: 162, label: 'Path A · Inside the re-ranking layer' },
+  { t: 212, label: 'Path B · Mechanism: the majority illusion' },
+  { t: 278, label: 'Path B · Demo: the distribution before the comments' },
+  { t: 363, label: 'Path C · Mechanism: social categorization' },
+  { t: 446, label: 'Path C · Demo: Jake, the report, and Carlos’s comment' },
+  { t: 536, label: 'Path C · The same chip' },
+  { t: 579, label: 'What this is, and what comes next' },
+];
+
+const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+---
+
+<BaseLayout
+  title="Demo — Lichtung"
+  description="A 10-minute walkthrough of Lichtung, a feed simulator implementing three perception-targeted intervention designs."
+>
+
+  <!-- Header -->
+  <section class="relative overflow-hidden pt-16 pb-8">
+    <div class="absolute top-0 right-0 w-[420px] h-[420px] pointer-events-none select-none" aria-hidden="true">
+      <div class="absolute top-4 right-4 w-72 h-72 rounded-full blur-3xl bg-[#7C3AED] opacity-15 dark:opacity-25"></div>
+      <div class="absolute top-24 right-16 w-56 h-56 rounded-full blur-3xl bg-[#2EA875] opacity-15 dark:opacity-20"></div>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-6 relative">
+      <a href="/" class="text-xs text-gray-400 dark:text-zinc-500 hover:text-[#111111] dark:hover:text-[#FAFAFA] transition-colors">← Back to home</a>
+      <div class="mt-4 flex items-baseline gap-2.5 flex-wrap">
+        <h1 class="text-xl font-semibold tracking-tight">Lichtung</h1>
+        <span class="text-sm text-gray-400 dark:text-zinc-500">林间空地</span>
+      </div>
+      <p class="mt-2 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        A working prototype built to illustrate how three distinct cognitive mechanisms behind
+        perceived polarization might be targeted at the system level — through algorithmic ranking,
+        information presentation, and identity-data surfacing.
+      </p>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="pb-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 bg-black">
+        <div class="relative w-full" style="aspect-ratio: 16 / 9;">
+          <iframe
+            id="player"
+            class="absolute inset-0 w-full h-full"
+            src={`https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0&modestbranding=1&cc_load_policy=1`}
+            title="Lichtung walkthrough"
+            frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+
+      <div class="mt-3 flex items-center justify-between gap-4 flex-wrap text-xs">
+        <p class="text-gray-500 dark:text-zinc-400">
+          10-minute walkthrough
+          <span class="text-gray-300 dark:text-zinc-600 px-1.5">·</span>English subtitles
+        </p>
+        <button
+          type="button"
+          data-seek="90"
+          class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity"
+        >
+          Short on time? Jump to the first intervention demo (1:30) →
+        </button>
+      </div>
+
+      <!-- Status statement -->
+      <blockquote class="mt-6 pl-4 border-l-2 border-[#7C3AED]/40 dark:border-[#A78BFA]/40">
+        <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+          I built Lichtung to make these interventions experimentally testable. In my PhD, my next
+          step is twofold: to test their causal effects in feed environments, and to translate the
+          underlying intervention functions into conversational AI as a second test arena.
+        </p>
+      </blockquote>
+
+      <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer"
+         class="mt-6 block w-full sm:w-auto sm:inline-block text-center text-sm font-medium rounded-lg px-5 py-2.5 bg-[#111111] text-white dark:bg-[#FAFAFA] dark:text-[#0A0A0A] hover:opacity-85 transition-opacity">
+        Open the live demo →
+      </a>
+      <p class="mt-2 text-xs text-gray-400 dark:text-zinc-500">
+        No signup, no configuration — the feed loads running.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Scope note -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <div class="rounded-xl border border-[#F97316]/30 bg-[#F97316]/[0.04] p-5">
+        <p class="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#C2410C] dark:text-[#FB923C] mb-2">Please note</p>
+        <p class="text-sm text-gray-600 dark:text-zinc-300 leading-relaxed">
+          This is an early-stage demonstration prototype, not a study. None of the three
+          interventions has been tested in a controlled experiment, and nothing in this video
+          reports an effect on perceived polarization. The demo exists to make the design logic
+          inspectable. Testing is the next step: an RCT in a high-fidelity feed simulator.
+        </p>
+      </div>
+
+      <p class="mt-4 text-xs text-gray-400 dark:text-zinc-500 leading-relaxed">
+        <span class="uppercase tracking-[0.1em] font-semibold">About the data</span> · Polling
+        distributions are from published public sources, cited on screen. News items are real
+        headlines and links. All user profiles and comments are synthetic.
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Chapters -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">Chapters</h2>
+      <ol class="space-y-1">
+        {chapters.map(c => (
+          <li>
+            <button
+              type="button"
+              data-seek={c.t}
+              class="group w-full text-left flex gap-4 py-1.5 rounded-md hover:bg-gray-50 dark:hover:bg-white/[0.04] transition-colors"
+            >
+              <span class="text-xs tabular-nums text-[#7C3AED] dark:text-[#A78BFA] w-11 shrink-0 pt-[2px]">{fmt(c.t)}</span>
+              <span class="text-sm text-gray-500 dark:text-zinc-400 group-hover:text-[#111111] dark:group-hover:text-[#FAFAFA] transition-colors leading-relaxed">{c.label}</span>
+            </button>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-4 text-xs text-gray-400 dark:text-zinc-500">
+        Or <a href={WATCH_URL} target="_blank" rel="noopener noreferrer" class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">open on YouTube ↗</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Build + links -->
+  <section class="py-9 pb-16">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-4">Built</h2>
+      <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+        React + TypeScript. The ranking layer, distribution component, and identity layer are
+        implemented from scratch.
+        <a href="https://github.com/rfb4c/Lichtung" target="_blank" rel="noopener noreferrer" class="text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">github.com/rfb4c/Lichtung ↗</a>
+      </p>
+
+      <div class="mt-10 flex items-center justify-between gap-4 flex-wrap">
+        <a href="/research" class="text-sm text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Research narrative →</a>
+        <a href="/cv" class="text-sm text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">CV →</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline define:vars={{ VIDEO_ID }}>
+  document.querySelectorAll('[data-seek]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const t = btn.getAttribute('data-seek');
+      const player = document.getElementById('player');
+      if (!player) return;
+      player.src = `https://www.youtube-nocookie.com/embed/${VIDEO_ID}?rel=0&modestbranding=1&cc_load_policy=1&autoplay=1&start=${t}`;
+      player.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+</script>

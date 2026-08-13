@@ -1,13 +1,25 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import BlogCard from '../components/BlogCard.astro';
-import { getCollection } from 'astro:content';
 import { featuredWorks } from '../data/writing';
 
-const posts = await getCollection('blog');
-const latestPosts = posts
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 2);
+const investigation = featuredWorks.find(w => w.type === 'Investigation')!;
+const documentary = featuredWorks.find(w => w.type === 'Documentary')!;
+const photography = featuredWorks.find(w => w.type === 'Photography')!;
+
+const modules = [
+  {
+    name: 'Exemplar diversity',
+    detail: 'increasing the representativeness of the voices users encounter, implemented through ranking',
+  },
+  {
+    name: 'Consensus overlay',
+    detail: 'restoring information about underlying opinion distributions through interface cues',
+  },
+  {
+    name: 'Identity salience',
+    detail: 'restoring multidimensional identity cues by reducing partisan-label prominence and surfacing shared identities',
+  },
+];
 ---
 
 <BaseLayout title="Ash Feng">
@@ -33,7 +45,7 @@ const latestPosts = posts
 
       <!-- Research interest tags -->
       <div class="flex flex-wrap gap-2">
-        {['Perceptual Polarization', 'Media Design', 'HCI', 'Computational Communication'].map(tag => (
+        {['Perceived Polarization', 'Media Design', 'HCI', 'Computational Communication'].map(tag => (
           <span class="text-xs px-3 py-1 rounded-full border border-gray-200 dark:border-white/15 text-gray-500 dark:text-zinc-400">
             {tag}
           </span>
@@ -48,190 +60,182 @@ const latestPosts = posts
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">About</h2>
       <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
         <p>
-          I design and study media environments that help people understand each other better across difference.
-          My research focuses on <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> —
-          the systematic exaggeration of how extreme and hostile the other side really is — and how platform
-          architecture can be redesigned to correct rather than amplify these distortions.
+          When a reporting series I helped produce received the China News Award — the
+          profession's highest honor in China — I found myself unable to celebrate. I had entered
+          journalism believing that better content could change how people understood one another.
+          But I came to see a structural limit: content matters only within the systems that
+          distribute and amplify it.
         </p>
         <p>
-          My background spans communication research, journalism, and software engineering — a combination
-          I built to do work that requires both theoretical grounding and the technical capacity to
-          construct the systems it proposes.
+          <span class="text-[#111111] dark:text-[#FAFAFA]">I entered journalism to change what
+          people read; I left it to change how they encounter information.</span> So I moved
+          upstream. I taught myself to program and became an engineer, shifting from producing
+          content to building the systems that mediate it. Today I build content-generation AI
+          agents as an engineer in Japan.
+        </p>
+        <p>
+          Engineering taught me how to build interventions, but not how to know whether they work.
+          That requires controlled experiments and causal inference — the training I now seek
+          through a PhD beginning in Fall 2027.
+        </p>
+      </div>
+      <div class="mt-5 flex justify-end">
+        <a href="/cv" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Full CV →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-2xl mx-auto px-6">
+    <hr class="border-gray-100 dark:border-white/10" />
+  </div>
+
+  <!-- Current research -->
+  <section id="research" class="py-14 scroll-mt-20">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">Current Research</h2>
+
+      <h3 class="text-base font-semibold text-[#111111] dark:text-[#FAFAFA] leading-snug">
+        Turning mechanisms of misperception into system design
+      </h3>
+      <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed mt-2">
+        <p>
+          People systematically overestimate how extreme and hostile the other side is — a
+          phenomenon known as
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceived polarization</span>.
+          I focus on how media environments shape the cues people use to infer what others believe.
+        </p>
+        <p>
+          My work follows a
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">mechanism-to-design</span>
+          approach. I start with documented mechanisms that distort social inference, translate each
+          into a
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">platform-agnostic intervention function</span>,
+          and then instantiate that function through the affordances of a particular system. This
+          separates the principle of an intervention from any one interface or platform — and makes
+          it possible to ask whether the same principle generalizes across interaction forms.
+        </p>
+        <p>
+          The goal is not to change what people believe, but
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">how accurately they perceive one another</span>.
         </p>
       </div>
 
-    </div>
-  </section>
-
-  <div class="max-w-2xl mx-auto px-6">
-    <hr class="border-gray-100 dark:border-white/10" />
-  </div>
-
-  <!-- Experience -->
-  <section class="py-14">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-6">Experience</h2>
-      <div class="space-y-8">
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
-          </div>
-          <div class="pb-2">
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Accenture Japan</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Nagoya · Jul 2025–Present</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Consultant & AI Solutions Engineer (Forward Deployed Engineer)</p>
-            <div class="mt-2 space-y-3">
-              <div>
-                <p class="text-xs text-gray-400 dark:text-zinc-500 mb-1">Major energy group · Development lead</p>
-                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
-                  Designed and built an AI workflow that auto-generates Java error-checking code end-to-end — from requirements through TDD — combining LLM and MCP. Led client negotiation, requirements alignment, and weekly reviews; standardized outputs as reusable, person-independent templates.
-                </p>
-              </div>
-              <div>
-                <p class="text-xs text-gray-400 dark:text-zinc-500 mb-1">Metropolitan government international PR department · Development member</p>
-                <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
-                  Building an AI agent pipeline that automates multilingual public communications record generation — directly adjacent to my research on AI-mediated information production.
-                </p>
-              </div>
-            </div>
-            <p class="text-xs text-gray-400 dark:text-zinc-500 mt-3">Java · Python · MCP · LLM · Prompt Engineering · TDD</p>
-          </div>
+      <!-- Two test arenas -->
+      <p class="mt-8 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-3">Two test arenas</p>
+      <div class="space-y-3">
+        <div class="flex gap-3">
+          <span class="w-1.5 h-1.5 mt-[7px] rounded-full bg-[#2EA875] shrink-0"></span>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+            <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Algorithmic feeds</span>
+            <span class="text-gray-300 dark:text-zinc-600"> · </span>the first experimental setting,
+            where these intervention functions can be instantiated as ranking and interface
+            manipulations and causally tested.
+          </p>
         </div>
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
-          </div>
-          <div class="pb-2">
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Neutral Co., Ltd.</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Nagoya · Jul 2023–Jun 2025</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">System Engineer</p>
-            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-              Full-stack development for a major automotive manufacturer's vehicle design systems. Designed and implemented features across UI, API, and database layers; participated in full agile lifecycle from requirements to release.
-            </p>
-            <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Java · Spring Boot · Angular.js · Oracle · Jenkins</p>
-          </div>
+        <div class="flex gap-3">
+          <span class="w-1.5 h-1.5 mt-[7px] rounded-full border border-gray-400 dark:border-zinc-500 shrink-0"></span>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+            <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Conversational AI</span>
+            <span class="text-gray-300 dark:text-zinc-600"> · </span>a second arena for testing
+            whether the same underlying functions can be realized — and remain effective — in a
+            different interaction architecture.
+          </p>
         </div>
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
-          </div>
-          <div class="pb-2">
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻)</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Beijing · Jul–Nov 2022</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Journalist</p>
-            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-              Covered science, technology, and breaking news. Produced a documentary series on national infrastructure projects (Chinese Journalism Award). Conducted an investigation into COVID survivor employment discrimination that prompted a State Council policy response.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
-          </div>
-          <div class="pb-2">
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻)</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Shanghai · 2021–2022</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">Intern Journalist</p>
-            <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-              Photojournalism, exhibition coverage, and multimedia production including VR dispatches. Produced an independent documentary on Chinese students stranded in Japan during the early pandemic.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-            <div class="w-px flex-1 bg-gray-100 dark:bg-white/10 mt-2"></div>
-          </div>
-          <div class="pb-2">
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Kansai University</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Japan · 2020–2022</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">M.A. Sociology (Mass Communication)</p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <div class="flex flex-col items-center pt-1">
-            <div class="w-1.5 h-1.5 rounded-full bg-gray-300 dark:bg-zinc-600 shrink-0"></div>
-          </div>
-          <div>
-            <div class="flex items-baseline gap-2 flex-wrap">
-              <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Shanghai Polytechnic University</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Shanghai · 2014–2018</span>
-            </div>
-            <p class="text-xs text-gray-500 dark:text-zinc-400 mt-0.5">B.A. Japanese & English</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <div class="max-w-2xl mx-auto px-6">
-    <hr class="border-gray-100 dark:border-white/10" />
-  </div>
+      <!-- Status statement -->
+      <blockquote class="mt-7 pl-4 border-l-2 border-[#7C3AED]/40 dark:border-[#A78BFA]/40">
+        <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+          I built Lichtung to make these interventions experimentally testable. In my PhD, my next
+          step is twofold: to test their causal effects in feed environments, and to translate the
+          underlying intervention functions into conversational AI as a second test arena.
+        </p>
+      </blockquote>
 
-  <!-- Research -->
-  <section class="py-14">
-    <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">Research</h2>
-      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed mb-8">
-        I study <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">perceptual polarization</span> — the systematic exaggeration of how extreme and hostile the other side really is. Evidence suggests that digital algorithms distort not political attitudes directly, but the informational inputs people use to <em>infer</em> out-group beliefs and in-group norms; this makes the inference layer the more tractable intervention target. My current research develops the <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Perceived Depolarization Design Framework (PDDF)</span>, which translates cognitive causal mechanisms into platform-agnostic intervention functions and tests them via randomized controlled experiments in a custom-built high-fidelity social feed simulator.
+      <!-- The testbed -->
+      <p class="mt-10 text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-3">Experimental testbed</p>
+
+      <div class="flex items-baseline gap-2.5 flex-wrap">
+        <span class="text-base font-semibold text-[#111111] dark:text-[#FAFAFA]">Lichtung</span>
+        <span class="text-sm text-gray-400 dark:text-zinc-500">林间空地</span>
+      </div>
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed mt-1.5">
+        A platform-independent social-feed simulator I built to turn these intervention designs
+        into experimentally manipulable conditions, without relying on commercial-platform APIs.
+        Three modules are currently implemented:
       </p>
-      <div class="space-y-6">
 
-        <div>
-          <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Patriotic Propaganda in Crisis</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">M.A. Thesis · 2022</span>
+      <ul class="mt-4 space-y-2">
+        {modules.map(m => (
+          <li class="flex gap-3 text-sm leading-relaxed">
+            <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+            <span class="text-gray-500 dark:text-zinc-400">
+              <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">{m.name}</span>
+              <span class="text-gray-300 dark:text-zinc-600"> · </span>{m.detail}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Live system card -->
+      <div class="mt-6 rounded-xl border border-gray-200 dark:border-white/10 overflow-hidden">
+        <div class="grid sm:grid-cols-[1.25fr_1fr]">
+
+          <!-- Live preview, inset in its own panel -->
+          <div class="bg-gray-50 dark:bg-white/[0.03] p-4 sm:p-5 flex items-center">
+            <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer"
+               class="group block w-full rounded-lg overflow-hidden border border-gray-200/80 dark:border-white/10 shadow-sm">
+              <img src="/images/lichtung-preview.webp" alt="The Lichtung feed simulator running"
+                   class="w-full aspect-[16/11] object-cover object-left-top group-hover:scale-[1.04] transition-transform duration-700" />
+            </a>
           </div>
-          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
-            A content analysis of People's Daily's WeChat account (n = 2,318 posts, January–April 2020), examining how Chinese state media deploys patriotic propaganda during a public health crisis. Identified four structural mechanisms: layered deployment of narrative categories, threshold-triggered responsiveness to political events, resilient adaptation under narrative challenges, and embodied transmission through representative identities.
-          </p>
-          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Content analysis · Chinese media · Political communication · Mass Communication</p>
-        </div>
 
-        <div>
-          <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung <span class="font-normal text-gray-400 dark:text-zinc-500">(林地空间)</span></span>
-            <a href="https://lichtung-three.vercel.app" target="_blank" rel="noopener noreferrer" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">lichtung-three.vercel.app ↗</a>
+          <!-- Metadata -->
+          <div class="p-5 flex flex-col gap-5 bg-white dark:bg-transparent border-t sm:border-t-0 sm:border-l border-gray-200 dark:border-white/10">
+
+            <div>
+              <p class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">Live system</p>
+              <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer"
+                 class="mt-1 inline-flex items-center gap-1 text-sm font-medium text-[#111111] dark:text-[#FAFAFA] hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors">
+                lichtung.ashfeng.com
+                <svg class="w-3 h-3 opacity-40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+              <p class="text-xs text-gray-400 dark:text-zinc-500 mt-1">No signup — the feed loads running.</p>
+            </div>
+
+            <div>
+              <p class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-2">Status</p>
+              <div class="space-y-1.5">
+                <div class="flex items-baseline gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#2EA875] shrink-0 translate-y-[-1px]"></span>
+                  <span class="text-sm text-[#111111] dark:text-[#FAFAFA]">Built</span>
+                  <span class="text-xs text-gray-400 dark:text-zinc-500">three intervention modules</span>
+                </div>
+                <div class="flex items-baseline gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full border border-gray-400 dark:border-zinc-500 shrink-0 translate-y-[-1px]"></span>
+                  <span class="text-sm text-gray-500 dark:text-zinc-400">Proposed</span>
+                  <span class="text-xs text-gray-400 dark:text-zinc-500">causal testing, in my PhD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer"
+                 class="block w-full text-center text-sm font-medium rounded-lg px-4 py-2 bg-[#111111] text-white dark:bg-[#FAFAFA] dark:text-[#0A0A0A] hover:opacity-85 transition-opacity">
+                Open the live demo →
+              </a>
+              <div class="mt-2.5 flex items-center justify-center gap-3 text-xs">
+                <a href="/demo" class="text-gray-500 dark:text-zinc-400 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors">Walkthrough</a>
+                <span class="text-gray-200 dark:text-white/10">|</span>
+                <a href="https://github.com/rfb4c/Lichtung" target="_blank" rel="noopener noreferrer" class="text-gray-500 dark:text-zinc-400 hover:text-[#7C3AED] dark:hover:text-[#A78BFA] transition-colors">GitHub</a>
+              </div>
+            </div>
+
           </div>
-          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
-            A high-fidelity social feed simulator with two depolarization interventions implemented — the experimental platform for my PhD research proposal. Built to test whether algorithmic design can reduce perceptual polarization.
-          </p>
-          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Research prototype · Feed ranking · AI agent · Behavioral telemetry</p>
         </div>
-
-        <div>
-          <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">r-selected</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">Retired prototype · preceded Lichtung</span>
-          </div>
-          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-1.5 leading-relaxed">
-            A multi-perspective news aggregator enabling side-by-side comparison of coverage across outlets on the same event. The original prototype that led me to question filter bubble theory.
-          </p>
-          <p class="text-xs text-gray-400 dark:text-zinc-500 mt-2">Java · Angular.js · Vue.js · MySQL · AWS EC2 · Docker</p>
-        </div>
-
       </div>
+
+      <p class="mt-3 text-xs text-gray-400 dark:text-zinc-500">Vue · Java / Python · Docker</p>
     </div>
   </section>
 
@@ -239,29 +243,23 @@ const latestPosts = posts
     <hr class="border-gray-100 dark:border-white/10" />
   </div>
 
-  <!-- Blog preview -->
+  <!-- How I got here -->
   <section class="py-14">
     <div class="max-w-2xl mx-auto px-6">
-      <div class="flex items-center justify-between mb-6">
-        <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">From the Blog</h2>
-        <a href="/blog" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">
-          All posts →
-        </a>
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">How I got here</h2>
+        <a href="/research" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">Full research narrative →</a>
       </div>
-      {latestPosts.length > 0 ? (
-        <div class="grid sm:grid-cols-2 gap-4">
-          {latestPosts.map(post => (
-            <BlogCard
-              title={post.data.title}
-              date={post.data.date.toISOString().split('T')[0]}
-              description={post.data.description}
-              slug={post.slug}
-            />
-          ))}
-        </div>
-      ) : (
-        <p class="text-sm text-gray-400 dark:text-zinc-500">No posts yet.</p>
-      )}
+      <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
+        My M.A. research examined how party-press social media constructed collective sentiment
+        during the early pandemic; later, I built R-Selected, a news aggregator that placed
+        coverage of the same event from different political perspectives side by side, based on
+        the intuition that broader exposure might reduce polarization. A literature review made me abandon that premise:
+        evidence for filter bubbles was weaker than I had assumed, and cross-cutting exposure
+        could even backfire. That failure redirected my research from
+        <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">what people see</span> to
+        <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">how they interpret what they see</span>.
+      </p>
     </div>
   </section>
 
@@ -269,74 +267,66 @@ const latestPosts = posts
     <hr class="border-gray-100 dark:border-white/10" />
   </div>
 
-  <!-- Writing preview -->
+  <!-- Journalism -->
   <section class="py-14">
     <div class="max-w-2xl mx-auto px-6">
-      <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center justify-between mb-5">
         <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500">Journalism</h2>
-        <a href="/writing" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">
-          All work →
-        </a>
+        <a href="/writing" class="text-xs text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">All work →</a>
       </div>
-      {(() => {
-        const documentary = featuredWorks.find(w => w.type === 'Documentary')!;
-        const investigation = featuredWorks.find(w => w.type === 'Investigation')!;
-        const photography = featuredWorks.find(w => w.type === 'Photography')!;
-        return (
-          <div class="space-y-3">
 
-            <!-- Investigation — top, most prominent, image + strong overlay -->
-            <a href={investigation.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden aspect-[2/1]">
-              <img src={investigation.image} alt={investigation.title}
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-              <div class="absolute inset-0 p-5 flex flex-col justify-between">
-                <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{investigation.type} · {investigation.publication} · {investigation.year}</span>
-                <div>
-                  <h3 class="text-base font-semibold text-white leading-snug mb-2">{investigation.title}</h3>
-                  <p class="text-xs text-white/60 leading-relaxed line-clamp-2 max-w-[60%]">{investigation.description}</p>
-                  {investigation.note && <p class="mt-2 text-[10px] text-[#FB923C]">{investigation.note}</p>}
-                </div>
-              </div>
-            </a>
+      <div class="space-y-3">
 
-            <!-- Photography — middle, wide landscape crop -->
-            <a href={photography.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden aspect-[16/9]">
-              <img src={photography.image} alt={photography.title}
-                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
-              <div class="absolute bottom-0 left-0 right-0 p-4">
-                <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{photography.type} · {photography.publication} · {photography.year}</p>
-                <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{photography.title}</h3>
-              </div>
-            </a>
-
-            <!-- Documentary — bottom, cinematic letterbox -->
-            <a href={documentary.url} target="_blank" rel="noopener noreferrer"
-               class="group relative block rounded-xl overflow-hidden bg-black aspect-[2/1]">
-              <div class="absolute inset-x-0 top-[11%] bottom-[11%]">
-                <img src={documentary.image} alt={documentary.title}
-                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              </div>
-              <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:scale-105 transition-all duration-200">
-                  <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-              <div class="absolute bottom-0 left-0 right-0 p-4">
-                <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">{documentary.type} · {documentary.publication} · {documentary.year}</p>
-                <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{documentary.title}</h3>
-              </div>
-            </a>
-
+        <!-- Investigation — top, most prominent, image + strong overlay -->
+        <a href={investigation.url} target="_blank" rel="noopener noreferrer"
+           class="group relative block rounded-xl overflow-hidden aspect-[2/1]">
+          <img src={investigation.image} alt={investigation.title}
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+          <div class="absolute inset-0 p-5 flex flex-col justify-between">
+            <span class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{investigation.type} · {investigation.publication} · {investigation.year}</span>
+            <div>
+              <h3 class="text-base font-semibold text-white leading-snug mb-2">{investigation.title}</h3>
+              <p class="text-xs text-white/60 leading-relaxed line-clamp-2 max-w-[60%]">{investigation.description}</p>
+              {investigation.note && <p class="mt-2 text-[10px] text-[#FB923C]">{investigation.note}</p>}
+            </div>
           </div>
-        );
-      })()}
+        </a>
+
+        <!-- Photography — middle, wide landscape crop -->
+        <a href={photography.url} target="_blank" rel="noopener noreferrer"
+           class="group relative block rounded-xl overflow-hidden aspect-[16/9]">
+          <img src={photography.image} alt={photography.title}
+               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/50">{photography.type} · {photography.publication} · {photography.year}</p>
+            <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{photography.title}</h3>
+          </div>
+        </a>
+
+        <!-- Documentary — bottom, cinematic letterbox -->
+        <a href={documentary.url} target="_blank" rel="noopener noreferrer"
+           class="group relative block rounded-xl overflow-hidden bg-black aspect-[2/1]">
+          <div class="absolute inset-x-0 top-[11%] bottom-[11%]">
+            <img src={documentary.image} alt={documentary.title}
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+          </div>
+          <div class="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-white/30 group-hover:scale-105 transition-all duration-200">
+              <svg class="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <p class="text-[10px] font-semibold uppercase tracking-[0.12em] text-white/40">{documentary.type} · {documentary.publication} · {documentary.year}</p>
+            <h3 class="mt-1 text-sm font-semibold text-white leading-snug">{documentary.title}</h3>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
 

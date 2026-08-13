@@ -1,0 +1,5 @@
+# The CV page itself stays crawlable so that its <meta name="robots" content="noindex">
+# can actually be read. Only the PDF is blocked here — a PDF cannot carry a meta tag,
+# and GitHub Pages cannot send an X-Robots-Tag header, so robots.txt is the only lever.
+User-agent: *
+Disallow: /cv/Ash_Feng_CV.pdf

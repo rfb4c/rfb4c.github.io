@@ -5,9 +5,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  /** Keep this page out of search results (it stays reachable by direct link). */
+  noindex?: boolean;
 }
 
-const { title, description = 'Ash Feng — IT Consultant, AI Engineer, Former Journalist' } = Astro.props;
+const {
+  title,
+  description = 'Ash Feng — IT Consultant, AI Engineer, Former Journalist',
+  noindex = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -16,6 +22,7 @@ const { title, description = 'Ash Feng — IT Consultant, AI Engineer, Former Jo
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <!-- Anti-FOUC: apply theme before first paint -->
