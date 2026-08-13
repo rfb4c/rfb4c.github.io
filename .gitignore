@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # Private documents (resume, research plans, drafts)
 docs/
+
+# Working notes for this project — kept local, not published
+CLAUDE.md
