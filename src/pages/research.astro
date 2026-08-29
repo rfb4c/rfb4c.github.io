@@ -91,6 +91,8 @@ const next = [
       <div class="absolute top-4 right-4 w-80 h-80 rounded-full blur-3xl bg-[#7C3AED] opacity-15 dark:opacity-25"></div>
       <div class="absolute top-24 right-16 w-60 h-60 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
     </div>
+    <!-- Fade the blobs into the page background so the clipped bottom edge does not read as a rule -->
+    <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white dark:from-[#0A0A0A] pointer-events-none select-none" aria-hidden="true"></div>
 
     <div class="max-w-2xl mx-auto px-6 relative">
       <h1 class="text-xl font-semibold tracking-tight">Research</h1>

@@ -32,6 +32,8 @@ const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '
       <div class="absolute top-4 right-4 w-72 h-72 rounded-full blur-3xl bg-[#7C3AED] opacity-15 dark:opacity-25"></div>
       <div class="absolute top-24 right-16 w-56 h-56 rounded-full blur-3xl bg-[#2EA875] opacity-15 dark:opacity-20"></div>
     </div>
+    <!-- Fade the blobs into the page background so the clipped bottom edge does not read as a rule -->
+    <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white dark:from-[#0A0A0A] pointer-events-none select-none" aria-hidden="true"></div>
 
     <div class="max-w-2xl mx-auto px-6 relative">
       <a href="/" class="text-xs text-gray-400 dark:text-zinc-500 hover:text-[#111111] dark:hover:text-[#FAFAFA] transition-colors">← Back to home</a>

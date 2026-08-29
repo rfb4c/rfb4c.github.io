@@ -11,7 +11,7 @@ interface Props {
 
 const {
   title,
-  description = 'Ash Feng — IT Consultant, AI Engineer, Former Journalist',
+  description = 'Ash Feng — AI Engineer, Former Journalist',
   noindex = false,
 } = Astro.props;
 ---
@@ -27,9 +27,8 @@ const {
     <title>{title}</title>
     <!-- Anti-FOUC: apply theme before first paint -->
     <script is:inline>
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
+      // Dark is the default; only an explicit light choice opts out.
+      if (localStorage.getItem('theme') !== 'light') {
         document.documentElement.classList.add('dark');
       }
     </script>

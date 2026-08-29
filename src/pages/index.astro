@@ -32,12 +32,14 @@ const modules = [
       <div class="absolute top-24 right-16 w-64 h-64 rounded-full blur-3xl bg-[#F97316] opacity-20 dark:opacity-30"></div>
       <div class="absolute top-8 right-52 w-48 h-48 rounded-full blur-3xl bg-[#06B6D4] opacity-15 dark:opacity-20"></div>
     </div>
+    <!-- Fade the blobs into the page background so the clipped bottom edge does not read as a rule -->
+    <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white dark:from-[#0A0A0A] pointer-events-none select-none" aria-hidden="true"></div>
 
     <div class="max-w-2xl mx-auto px-6 relative">
       <!-- Profile row -->
       <div class="mb-8">
         <h1 class="text-xl font-semibold tracking-tight">Ash Feng</h1>
-        <p class="mt-0.5 text-sm text-gray-500 dark:text-zinc-400">Consultant & AI Engineer · Former Journalist in China</p>
+        <p class="mt-0.5 text-sm text-gray-500 dark:text-zinc-400">AI Engineer · Former Journalist in China</p>
         <p class="text-xs text-gray-400 dark:text-zinc-500 mt-0.5">Nagoya, Japan</p>
       </div>
 
@@ -45,7 +47,7 @@ const modules = [
 
       <!-- Research interest tags -->
       <div class="flex flex-wrap gap-2">
-        {['Perceived Polarization', 'Media Design', 'HCI', 'Computational Communication'].map(tag => (
+        {['Social Computing', 'Perceived Polarization', 'Perception-Targeted Intervention Design'].map(tag => (
           <span class="text-xs px-3 py-1 rounded-full border border-gray-200 dark:border-white/15 text-gray-500 dark:text-zinc-400">
             {tag}
           </span>
@@ -55,7 +57,7 @@ const modules = [
   </section>
 
   <!-- About -->
-  <section class="pb-14">
+  <section class="pt-6 sm:pt-0 pb-14">
     <div class="max-w-2xl mx-auto px-6">
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 mb-5">About</h2>
       <div class="space-y-4 text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
