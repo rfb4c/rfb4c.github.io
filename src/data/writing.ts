@@ -105,16 +105,4 @@ export const writingSeries: WritingSeries[] = [
       { title: '曹杨新村系列（建党百年特别报道）', url: 'https://www.thepaper.cn/newsDetail_forward_13442780' },
     ],
   },
-  {
-    name: 'Science & Technology',
-    publication: 'The Cover (封面新闻)',
-    period: '2022',
-    description: 'Breaking news and feature coverage of emerging technologies and environmental events.',
-    items: [
-      { title: '5.5G有望2024年进入商用 它将如何改变生活？', url: 'https://www.thecover.cn/news/cbMikkRyn6o=' },
-      { title: '世界首台矿用机动型硬岩掘进机下线 研发团队：解决了"卡脖子"问题', url: 'https://www.thecover.cn/news/65DfaZN0vig=' },
-      { title: '塔克拉玛干沙漠出现"湖泊"？气候学专家解析三大疑问', url: 'https://www.thecover.cn/news/y3SF37xcwSU=' },
-      { title: '辽宁绕阳河堤坝溃口追踪 当地农户：水稻被淹了 螃蟹被冲走了', url: 'https://www.thecover.cn/news/GOZO4svuCWY=' },
-    ],
-  },
 ];
