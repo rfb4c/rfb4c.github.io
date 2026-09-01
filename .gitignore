@@ -29,5 +29,9 @@ pnpm-debug.log*
 # Private documents (resume, research plans, drafts)
 docs/
 
+# Source documents behind the CV and the manuscript — local only, never published
+CV_RuiFeng.*
+*.docx.md
+
 # Working notes for this project — kept local, not published
 CLAUDE.md

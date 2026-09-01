@@ -42,9 +42,9 @@ export const featuredWorks: FeaturedWork[] = [
     year: '2022',
     url: 'https://m.thecover.cn/news_details.html?eid=H4rQMrOpoNU=',
     image: '/images/cover-covid-discrimination.jpg',
-    description: 'An investigation into workplace discrimination against COVID survivors, which prompted an official response from the State Council and contributed to subsequent policy measures.',
+    description: 'An investigation into employment discrimination against people recovering from COVID-19, which prompted an official policy response.',
     type: 'Investigation',
-    note: 'Prompted State Council policy response',
+    note: 'Prompted a response from the Ministry of Human Resources and Social Security',
   },
   {
     title: '浦东上南九村雨夜中的核酸检测一瞥',
@@ -95,7 +95,7 @@ export const writingSeries: WritingSeries[] = [
     publication: 'The Paper · The Cover (澎湃新闻 · 封面新闻)',
     period: '2021–2022',
     badge: '中国新闻奖',
-    description: 'Institutional commissions produced as part of the CCP centenary coverage and a national infrastructure documentary series. The 曹杨新村 project documented a landmark model socialist community in Shanghai; the 大国工程 series won a Chinese Journalism Award.',
+    description: 'Institutional commissions produced as part of the CCP centenary coverage and a national infrastructure documentary series. The 曹杨新村 project documented a landmark model socialist community in Shanghai; the 大国工程 series won the China News Award.',
     items: [
       { title: '北京大兴国际机场为何被誉为"新世界七大奇迹"之首？｜大国工程我来建', url: 'https://www.thecover.cn/video/WOQNOP5gNO0=', note: 'video' },
       { title: '从江河走向海洋 原杭州湾跨海大桥总工程师吕忠达｜大国工程我来建', url: 'https://www.thecover.cn/news/tIgi%2BYZ1row=' },

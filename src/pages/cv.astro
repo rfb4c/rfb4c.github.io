@@ -4,19 +4,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const PDF = '/cv/Ash_Feng_CV.pdf';
 
 const education = [
-  { school: 'Kansai University', where: 'Osaka, Japan', when: '2020–2022', detail: 'M.A. in Sociology (Mass Communication), GPA 4.0/4.0' },
+  { school: 'Kansai University', where: 'Osaka, Japan', when: '2020–2022', detail: 'M.A. in Sociology (Mass Communication), highest grade in all graded coursework',
+    thesis: "Thesis (in Japanese): The Role of the People's Daily WeChat Account in Political Propaganda — With a Focus on Patriotic Propaganda" },
   { school: 'Shanghai Polytechnic University', where: 'Shanghai, China', when: '2014–2018', detail: 'B.A. in English Language and Literature' },
   { school: 'University of Missouri–Kansas City', where: 'Kansas City, MO', when: '2016', detail: 'Exchange Student' },
 ];
 
 const awards = [
-  '2025 · Internal MVP Award, Accenture Japan (generative-AI engagement for a major energy utility)',
-  '2023 · China News Award (中国新闻奖), team award, national infrastructure feature series, The Cover',
+  '2025 · Internal MVP Award, ITXO GenAI Center, Accenture Japan (generative-AI engagement for a major energy utility)',
+  '2023 · China News Award (中国新闻奖) — the national journalism award of China (All-China Journalists Association); team award, national infrastructure feature series, The Cover',
 ];
 
 const skills = [
   { label: 'Research', detail: 'Quantitative content analysis and qualitative close reading; coding scheme development and intercoder reliability.' },
-  { label: 'Programming', detail: 'Python, Java, TypeScript; full-stack web development (Spring Boot, Angular, Vue); data analysis in Python (pandas); containerized cloud deployment (Docker, AWS, Azure).' },
+  { label: 'Programming', detail: 'Python, TypeScript, Java, SQL; React, Vue, pandas; Docker, AWS.' },
   { label: 'AI Systems', detail: 'LLM agent development (Strands Agents, MCP); RAG with vector and graph databases; prompt and context engineering; production AI workflow design.' },
 ];
 
@@ -69,10 +70,12 @@ const certifications = [
     <div class="max-w-2xl mx-auto px-6">
       <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Research Interests</h2>
       <p class="text-[15px] text-gray-600 dark:text-zinc-300 leading-relaxed">
-        Designing and testing media-system interventions against polarization; current work
-        targets perceived polarization — the misreading of political opinion distributions —
-        via a mechanism-to-design approach, implemented as three intervention modules in
-        algorithmic feeds, with conversational AI as a proposed second test arena.
+        Designing and testing media-system interventions against polarization. Current work
+        targets perceived polarization, the misreading of what the other side actually thinks,
+        deriving intervention modules from documented mechanisms of out-group misperception and
+        implementing them as feed and interface conditions in a platform-independent experimental
+        simulator. The next step is controlled online tests of their causal effects; conversational
+        AI is a parallel arena for the same logic.
       </p>
     </div>
   </section>
@@ -89,6 +92,7 @@ const certifications = [
               <span class="text-xs text-gray-400 dark:text-zinc-500">{e.when}</span>
             </div>
             <p class="text-sm text-gray-500 dark:text-zinc-400 mt-0.5">{e.detail}</p>
+            {e.thesis && <p class="text-sm text-gray-500 dark:text-zinc-400 mt-0.5">{e.thesis}</p>}
           </div>
         ))}
       </div>
@@ -103,53 +107,71 @@ const certifications = [
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung — Feed-Based Experimental Simulator for Perceived Polarization</span>
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Lichtung — Feed-Based Experimental Platform for Perceived Polarization</span>
             <span class="text-xs text-gray-400 dark:text-zinc-500">2026–Present</span>
           </div>
           <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">
-            Independent research project, sole designer and developer —
+            Independent research project, sole researcher and developer —
             <a href="https://lichtung.ashfeng.com" target="_blank" rel="noopener noreferrer" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">lichtung.ashfeng.com</a>
             <span class="text-gray-300 dark:text-zinc-600"> · </span>
             <a href="https://github.com/rfb4c/Lichtung" target="_blank" rel="noopener noreferrer" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">github.com/rfb4c/Lichtung</a>
+            <span class="text-gray-300 dark:text-zinc-600"> · </span>
+            <a href="https://www.youtube.com/watch?v=ahupkhUs_VI" target="_blank" rel="noopener noreferrer" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">video walkthrough</a>
           </p>
           <ul class="mt-3 space-y-2">
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Built a platform-independent social feed simulator that turns mechanisms of perceived polarization into manipulable feed- and interface-level experimental conditions, without dependence on commercial-platform APIs.</span>
+              <span>Designed and built a platform-independent social feed simulator for research on perceived polarization, demonstrating the interventions as interactive feed- and interface-level modules and running without access to commercial-platform APIs, hence without dependence on platform cooperation.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Redirected the work from <em>what users see</em> to <em>how users interpret what they see</em> after retiring R-selected (2024–2025), an earlier deployed prototype aggregating same-event coverage across outlets of differing stances, once a systematic literature review found the filter-bubble account weakly evidenced (Bruns, 2019; Arguedas et al., 2022) and cross-cutting exposure capable of backfiring (Bail et al., 2018).</span>
+              <span>Derived three intervention modules from documented mechanisms of out-group misperception and implemented each: reranking that surfaces counter-stereotypical out-party content, a distribution-overlay UI that surfaces the moderate majority obscured by extreme voices, drawing on authoritative poll distributions, and an identity layer that displays shared non-political attributes.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Implemented three intervention modules, each targeting a distinct documented mechanism of out-group misperception: exemplar-diversity reweighting in the ranking layer, a distribution-overlay UI carrying authoritative poll distributions, and an identity layer that lowers party-label salience.</span>
-            </li>
-            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
-              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Extending the prototype into an RCT-capable platform: randomized condition assignment, behavioral telemetry (exposure sequence, dwell time, scroll depth, interactions), and pre/post survey linkage.</span>
+              <span>Extending it for online experiments, adding randomized condition assignment, behavioral telemetry (exposure sequence, dwell time, scroll depth, interactions), and pre/post survey linkage.</span>
             </li>
           </ul>
         </div>
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Master's Thesis Research — Kansai University, Graduate School of Sociology</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">2020–2022</span>
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">R-Selected — Cross-Perspective News Aggregator</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">2024–2025</span>
           </div>
-          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">How party-press social media built the boundaries of national community through patriotic propaganda in the early COVID-19 pandemic</p>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">
+            Prior independent research project, sole developer — <a href="https://ashfeng.com/research" class="not-italic text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">ashfeng.com/research</a>
+          </p>
           <ul class="mt-3 space-y-2">
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Hand-coded the complete census of 2,318 posts published by the <em>People's Daily</em> WeChat official account over the first four months of 2020, developing an original coding scheme measuring both who each post addressed and how it defined "us" when it did.</span>
+              <span>Built and deployed a news aggregator that collected coverage of the same event from outlets across the political spectrum, premised on the assumption that breaking filter bubbles would reduce polarization.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Found attention turned sharply inward at the crisis peak, driven by which topics entered the publishing agenda rather than a shift in how existing foreign coverage was framed; outward-facing content rarely combined positive self-positioning with hostility toward outsiders.</span>
+              <span>Shut it down after a systematic literature review found the filter-bubble account weakly evidenced (Bruns, 2019; Arguedas et al., 2022) and cross-cutting exposure capable of backfiring (Bail et al., 2018), moving the research target from <em>what users see</em> to <em>how they interpret it</em>; led directly to Lichtung.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Constructing the National Community in Times of Crisis: Direction, External Relations, and Internal Representation in People's Daily WeChat Patriotic Propaganda during the COVID-19 Outbreak</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">Manuscript in preparation, 2026</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Developed from M.A. thesis (Kansai University, 2022).</p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Hand-coded every headline the <em>People's Daily</em> WeChat account published January–April 2020 (N = 2,318; 761 coded as patriotic propaganda) under an original two-level scheme separating narrative direction (inward vs. outward) from construction mechanism.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Found representational form assembled from a small set of reusable title formulas and narrative paths rather than composed anew for each event: hero portrayals converged on healthcare workers — from a third of represented figures to nearly nine in ten — after the first political mobilization point.</span>
+              <span>Construction stayed inward-facing across all four crisis periods (94.1% at peak), and in the outward remainder positive self-positioning and antagonistic othering barely co-occurred (2.5% of 162), splitting the two halves of the standard in-group/out-group script.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Horizontal affective solidarity was the largest of five construction mechanisms (48.9% of the patriotic sample) and ran on a reusable heroization template: three formulaic title patterns and three narrative paths, including 28 posts in 16 days sharing one provincial medical-team roster format, with represented figures converging on healthcare workers.</span>
             </li>
           </ul>
         </div>
@@ -158,10 +180,58 @@ const certifications = [
     </div>
   </section>
 
-  <!-- Employment -->
+  <!-- Journalism -->
   <section class="py-9">
     <div class="max-w-2xl mx-auto px-6">
-      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Employment</h2>
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Journalism</h2>
+      <div class="space-y-8">
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻, West China Metropolis Daily Group) — Beijing, China</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">July–November 2022</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Journalist</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">Reported on government, science and technology, and general news.</p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><a href="https://m.thecover.cn/news_details.html?eid=H4rQMrOpoNU=" target="_blank" rel="noopener noreferrer" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">Investigation into employment discrimination against people recovering from COVID-19.</a> Prompted a policy response from the Ministry of Human Resources and Social Security.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><a href="/writing" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">National infrastructure feature series.</a> Member of the feature team; the series later received the China News Award.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="flex items-baseline justify-between gap-4 flex-wrap">
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻, Shanghai United Media Group) — Shanghai, China</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500">February 2021–January 2022</span>
+          </div>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Intern Journalist</p>
+          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">Covered cultural affairs in writing, photography, and documentary video.</p>
+          <ul class="mt-3 space-y-2">
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><a href="https://ent.ifeng.com/c/89AtBYbXVBS" target="_blank" rel="noopener noreferrer" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">Documentary on Chinese students in Japan during the COVID-19 pandemic.</a> Independently reported, shot, and edited.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span><a href="/writing" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">Photography desk and interactive VR dispatches.</a> Profiles of documentary photographers and exhibition criticism; photo essays and VR reports on pandemic-era Shanghai and urban redevelopment.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry Experience -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Industry Experience</h2>
       <div class="space-y-8">
 
         <div>
@@ -171,28 +241,27 @@ const certifications = [
           </div>
           <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">AI Engineer / Consultant</p>
           <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-            Joined through the acquisition of Neutral Inc. Generative AI and AI-agent delivery, from
-            proof of concept to production adoption.
+            Joined through the acquisition of Neutral Co., Ltd.
           </p>
           <ul class="mt-3 space-y-2">
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">AI-driven development workflow for a major energy utility</span> (August 2025–Present). Development lead, team of 5. Designed the AI workflow architecture and MCP integration for automated generation of Java error-handling code in a large-scale customer information system; cut a requirements-to-unit-test cycle that previously took months to 4–5 days. Received an internal MVP award.</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Retrieval architecture over system documentation and code, major energy utility</span> (August 2026–Present). Proposal team member; running the client requirements sessions and drafting the technical approach: hybrid retrieval across the system's full artifact chain — requirements, design documents, source code — combining a vector store with a knowledge graph of the traceability relations between them.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Content-generation AI agent for a municipal government's international public relations division</span> (April–June 2026). Developer, then recovery lead; team of 10. Prompt design and implementation in Python and Strands Agents; as recovery lead on a stalled project, ran architecture review, task prioritization, ownership assignment, and progress management.</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Content-generation AI agent for a municipal government's international public relations division</span> (April–June 2026). Developer, then recovery lead; team of 10. Architecture and implementation in Python and Strands Agents: prompt design and generation pipeline.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Generative-AI incident-response support for a central government ministry</span> (June–August 2025). Developer. Designed and rolled out a generative-AI debugging solution with instructional video, hands-on sessions, and internal enablement.</span>
+              <span><span class="text-[#111111] dark:text-[#FAFAFA] font-medium">AI-driven development workflow for a major energy utility</span> (August 2025–July 2026). Development lead, team of 5. Designed the AI workflow architecture and MCP integration for automated generation of Java error-handling code in a large-scale customer information system.</span>
             </li>
           </ul>
         </div>
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Neutral Inc. — Nagoya, Japan</span>
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Neutral Co., Ltd. — Nagoya, Japan</span>
             <span class="text-xs text-gray-400 dark:text-zinc-500">July 2023–June 2025</span>
           </div>
           <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Software Engineer</p>
@@ -200,35 +269,6 @@ const certifications = [
             Full-stack agile development of a vehicle design support system for a major automotive
             manufacturer: detailed design through implementation, unit test, and system test in Java,
             TypeScript, and Oracle.
-          </p>
-        </div>
-
-        <div>
-          <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻) — Beijing, China</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">July–November 2022</span>
-          </div>
-          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Journalist</p>
-          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-            Reported on government, science and technology, and general news; story planning,
-            interviewing, writing, and video direction. Investigated employment discrimination against
-            people recovering from COVID-19, prompting a policy response from the Ministry of Human
-            Resources and Social Security. Member of the feature team covering a national
-            infrastructure program; the series reached roughly 100 million cumulative views and later
-            received the China News Award.
-          </p>
-        </div>
-
-        <div>
-          <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Paper (澎湃新闻) — Shanghai, China</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500">January 2021–January 2022</span>
-          </div>
-          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Intern Journalist</p>
-          <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-            Covered cultural affairs in writing, photography, and documentary video. Independently
-            reported, shot, and edited a documentary on Chinese students in Japan during the COVID-19
-            pandemic.
           </p>
         </div>
 
