@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const PDF = '/cv/Ash_Feng_CV.pdf';
+const PDF = '/cv/Rui_Feng_CV.pdf';
 
 const education = [
   { school: 'Kansai University', where: 'Osaka, Japan', when: '2020–2022', detail: 'M.A. in Sociology (Mass Communication), highest grade in all graded coursework',
@@ -99,6 +99,21 @@ const certifications = [
     </div>
   </section>
 
+  <!-- Manuscripts -->
+  <section class="py-9">
+    <div class="max-w-2xl mx-auto px-6">
+      <h2 class="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400 dark:text-zinc-500 pb-2 mb-4 border-b border-gray-100 dark:border-white/10">Manuscripts</h2>
+      <div class="space-y-4">
+        <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+          Feng, R. Lichtung: Turning Perceived-Polarization Mechanisms into Three Auditable Feed Interventions. Submitted to the Posters &amp; Demos track, 32nd ACM Conference on Intelligent User Interfaces (IUI '27).
+        </p>
+        <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+          Feng, R. Constructing the National Community in Times of Crisis: Direction, External Relations, and Internal Representation in <em>People's Daily</em> WeChat Patriotic Propaganda during the COVID-19 Outbreak. <em>Working paper, 2026.</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Research experience -->
   <section class="py-9">
     <div class="max-w-2xl mx-auto px-6">
@@ -126,6 +141,10 @@ const certifications = [
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
               <span>Derived three intervention modules from documented mechanisms of out-group misperception and implemented each: reranking that surfaces counter-stereotypical out-party content, a distribution-overlay UI that surfaces the moderate majority obscured by extreme voices, drawing on authoritative poll distributions, and an identity layer that displays shared non-political attributes.</span>
+            </li>
+            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
+              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
+              <span>Built the offline LLM annotation pipeline behind the interventions: two judges from different model vendors score each item against criteria frozen before the run and merge under a fixed rule, with raw verdicts and inter-judge agreement inspectable in the interface.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
@@ -157,9 +176,9 @@ const certifications = [
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
             <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Constructing the National Community in Times of Crisis: Direction, External Relations, and Internal Representation in People's Daily WeChat Patriotic Propaganda during the COVID-19 Outbreak</span>
-            <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">Manuscript in preparation, 2026</span>
+            <span class="text-xs text-gray-400 dark:text-zinc-500 shrink-0">2026</span>
           </div>
-          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Developed from M.A. thesis (Kansai University, 2022).</p>
+          <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Independent research project, sole researcher — original 2020 corpus recoded and reanalyzed in 2026 under a newly developed coding scheme; extends the M.A. thesis (Kansai University, 2022).</p>
           <ul class="mt-3 space-y-2">
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
@@ -167,11 +186,7 @@ const certifications = [
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Construction stayed inward-facing across all four crisis periods (94.1% at peak), and in the outward remainder positive self-positioning and antagonistic othering barely co-occurred (2.5% of 162), splitting the two halves of the standard in-group/out-group script.</span>
-            </li>
-            <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
-              <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span>Horizontal affective solidarity was the largest of five construction mechanisms (48.9% of the patriotic sample) and ran on a reusable heroization template: three formulaic title patterns and three narrative paths, including 28 posts in 16 days sharing one provincial medical-team roster format, with represented figures converging on healthcare workers.</span>
+              <span>Construction of the national community stayed inward-facing across all four crisis periods, splitting the standard in-group/out-group script: positive self-positioning and antagonistic othering rarely co-occurred. The dominant mechanism was horizontal affective solidarity, running on a reusable heroization template of formulaic title patterns and narrative paths.</span>
             </li>
           </ul>
         </div>
@@ -188,7 +203,7 @@ const certifications = [
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻, West China Metropolis Daily Group) — Beijing, China</span>
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">The Cover (封面新闻, Sichuan Daily Press Group) — Beijing, China</span>
             <span class="text-xs text-gray-400 dark:text-zinc-500">July–November 2022</span>
           </div>
           <p class="text-xs text-gray-500 dark:text-zinc-400 mt-1 italic">Journalist</p>
@@ -196,11 +211,11 @@ const certifications = [
           <ul class="mt-3 space-y-2">
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span><a href="https://m.thecover.cn/news_details.html?eid=H4rQMrOpoNU=" target="_blank" rel="noopener noreferrer" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">Investigation into employment discrimination against people recovering from COVID-19.</a> Prompted a policy response from the Ministry of Human Resources and Social Security.</span>
+              <span><a href="https://m.thecover.cn/news_details.html?eid=H4rQMrOpoNU=" target="_blank" rel="noopener noreferrer" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">Investigation into employment discrimination against people who had recovered from COVID-19.</a> Prompted a policy response from the Ministry of Human Resources and Social Security.</span>
             </li>
             <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
               <span class="text-gray-300 dark:text-zinc-600 select-none">—</span>
-              <span><a href="/writing" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">National infrastructure feature series.</a> Member of the feature team; the series later received the China News Award.</span>
+              <span><a href="/writing" class="text-[#111111] dark:text-[#FAFAFA] font-medium hover:opacity-70 transition-opacity">National infrastructure feature series.</a> Member of the feature team; the series received the China News Award, China's national journalism award.</span>
             </li>
           </ul>
         </div>
@@ -236,14 +251,15 @@ const certifications = [
 
         <div>
           <div class="flex items-baseline justify-between gap-4 flex-wrap">
-            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Accenture Japan (via acquisition of Neutral Co., Ltd., July 2025) — Nagoya, Japan</span>
+            <span class="text-sm font-medium text-[#111111] dark:text-[#FAFAFA]">Accenture Japan <span class="font-normal text-gray-400 dark:text-zinc-500">(via acquisition of Neutral Co., Ltd., July 2025)</span> — Nagoya, Japan</span>
             <span class="text-xs text-gray-400 dark:text-zinc-500">2023–Present</span>
           </div>
 
+          <!-- Sub-role: AI Engineer -->
           <div class="mt-3 ml-4">
             <div class="flex items-baseline justify-between gap-4 flex-wrap">
-              <span class="text-sm italic text-gray-600 dark:text-zinc-300">AI Engineer / Consultant</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">Jul 2025–Present</span>
+              <span class="text-xs text-gray-500 dark:text-zinc-400 italic">AI Engineer / Consultant</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">July 2025–Present</span>
             </div>
             <ul class="mt-2 space-y-2">
               <li class="flex gap-3 text-sm leading-relaxed text-gray-500 dark:text-zinc-400">
@@ -261,15 +277,14 @@ const certifications = [
             </ul>
           </div>
 
+          <!-- Sub-role: Software Engineer -->
           <div class="mt-4 ml-4">
             <div class="flex items-baseline justify-between gap-4 flex-wrap">
-              <span class="text-sm italic text-gray-600 dark:text-zinc-300">Software Engineer, Neutral Co., Ltd.</span>
-              <span class="text-xs text-gray-400 dark:text-zinc-500">2023–Jul 2025</span>
+              <span class="text-xs text-gray-500 dark:text-zinc-400 italic">Software Engineer, Neutral Co., Ltd.</span>
+              <span class="text-xs text-gray-400 dark:text-zinc-500">2023–July 2025</span>
             </div>
             <p class="text-sm text-gray-500 dark:text-zinc-400 mt-2 leading-relaxed">
-              Full-stack agile development of a vehicle design support system for a major automotive
-              manufacturer: detailed design through implementation, unit test, and system test in Java,
-              TypeScript, and Oracle.
+              Full-stack agile development of a vehicle design support system for a major automotive manufacturer: detailed design through implementation, unit test, and system test in Java, TypeScript, and Oracle.
             </p>
           </div>
         </div>
