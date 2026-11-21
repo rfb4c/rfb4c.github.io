@@ -38,11 +38,11 @@ export const featuredWorks: FeaturedWork[] = [
   },
   {
     title: '新冠康复者遭职场歧视',
-    publication: 'The Cover (封面新闻)',
+    publication: 'Cover News (封面新闻)',
     year: '2022',
     url: 'https://m.thecover.cn/news_details.html?eid=H4rQMrOpoNU=',
     image: '/images/cover-covid-discrimination.jpg',
-    description: 'An investigation into employment discrimination against people recovering from COVID-19, which prompted an official policy response.',
+    description: 'An investigation into employment discrimination against people who had recovered from COVID-19, which prompted an official policy response.',
     type: 'Investigation',
     note: 'Prompted a response from the Ministry of Human Resources and Social Security',
   },
@@ -92,10 +92,10 @@ export const writingSeries: WritingSeries[] = [
   },
   {
     name: 'Propaganda',
-    publication: 'The Paper · The Cover (澎湃新闻 · 封面新闻)',
+    publication: 'The Paper · Cover News (澎湃新闻 · 封面新闻)',
     period: '2021–2022',
     badge: '中国新闻奖',
-    description: 'Institutional commissions produced as part of the CCP centenary coverage and a national infrastructure documentary series. The 曹杨新村 project documented a landmark model socialist community in Shanghai; the 大国工程 series won the China News Award.',
+    description: 'Institutional commissions produced as part of the CCP centenary coverage and a national infrastructure documentary series. The 曹杨新村 project documented a landmark model socialist community in Shanghai; the 大国工程 series won the China Journalism Award.',
     items: [
       { title: '北京大兴国际机场为何被誉为"新世界七大奇迹"之首？｜大国工程我来建', url: 'https://www.thecover.cn/video/WOQNOP5gNO0=', note: 'video' },
       { title: '从江河走向海洋 原杭州湾跨海大桥总工程师吕忠达｜大国工程我来建', url: 'https://www.thecover.cn/news/tIgi%2BYZ1row=' },
