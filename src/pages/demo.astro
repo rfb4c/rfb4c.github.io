@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const VIDEO_ID = 'ahupkhUs_VI';
 const WATCH_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
+const RATIONALE = '/demo/Rui_Feng_Lichtung_Design_Rationale.pdf';
 
 const chapters = [
   { t: 0,   label: 'Introduction — what perceived polarization is, and the method' },
@@ -114,6 +115,20 @@ const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '
           reports an effect on perceived polarization. The demo exists to make the design logic
           inspectable. Testing is the next step: an RCT in a high-fidelity feed simulator.
         </p>
+      </div>
+
+      <div class="mt-5">
+        <p class="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
+          <span class="text-[#111111] dark:text-[#FAFAFA] font-medium">Design rationale</span>
+          <span class="text-gray-300 dark:text-zinc-600"> · </span>why each intervention is built the way it is, and how it would be tested
+        </p>
+        <a href={RATIONALE} download
+           class="mt-1 inline-flex items-center gap-1.5 text-sm text-[#7C3AED] dark:text-[#A78BFA] hover:opacity-70 transition-opacity">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/>
+          </svg>
+          Download PDF
+        </a>
       </div>
 
       <p class="mt-4 text-xs text-gray-400 dark:text-zinc-500 leading-relaxed">
